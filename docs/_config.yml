@@ -1,1 +1,5 @@
 theme: jekyll-theme-minimal
+title: [DiscriMeasures]
+description: [A Benchmarking Platform for Discrimination Discovery in Machine Learning]
+show_downloads: ["true"]
+# google_analytics: [Your Google Analytics tracking ID]
