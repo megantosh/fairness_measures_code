@@ -1,3 +1,3 @@
 About.md
 
-Impressum / legal?
+Impressum / legal? etc. img hooks workking?
