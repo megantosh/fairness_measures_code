@@ -4,7 +4,7 @@ Created on Jun 14, 2017
 @author: mzehlike
 '''
 import unittest
-from dataStructure.dataset import Dataset
+from data_structure.dataset import Dataset
 
 
 class Test(unittest.TestCase):
