@@ -3,17 +3,30 @@ Created on Jun 13, 2017
 
 @author: meike.zehlike
 '''
-from data_structure import dataset
 import numpy as np
 import pandas as pd
 
 def mean_difference(dataset, protected_column, non_protected=0, targets='all'):
-    # TODO: Doku: dataset = python dataframe mit den Daten aus der CSV Datei
-    # protected_column = name der Spalte, die den protection status angibt, der hier benutzt werden soll
-    # non_protected = diejenige Kategorie (als Integer), die die advantaged group beschreibt, default 0
-    # mean differences werden immer with respect to the non-protected group berechnet
-    # gibt einen dataframe zurück mit den geschützten Kategorien als zeilenindex,
-    # der target_column als column names und der mean difference als value
+    """
+    takes a dataset with columns that contain target variables as well as protection status variables
+    and calculates the mean difference of the targets of each protected group to the non-protected
+    group. For each target column, first the variables are ordered into a subset for each protected
+    group and the mean is calculated. Then the values of the target column for the non-protected
+    group are extracted and their mean is calculated.
+    Each protected mean is subtracted from the non-protected mean.
+
+    @param dataset: data that contains all target and protected variables
+    @param protected_column: the column that contains the protected variables
+    @param non-protected: the value within protected_column that describes the non-protected category
+    @param targets: set of column names of which the mean differences shall be calculated
+
+    @return: a python dataframe that contains the target columns as column names and the protection
+    categories from protected_column as indices. Note that the non-protected category is excluded as
+    it would contain only zeros anyway. The cells contain the values of the mean differences
+    between the non-protected group and the particular protected one for that particular target variables.
+    If the difference is positive, the mean of the non-protected group was greater than the mean of the
+    protected one, otherwise smaller.
+    """
 
     if protected_column not in dataset.protected_cols:
         raise ValueError("given protected_column column name doesn't exist in dataset. Check spelling.")
