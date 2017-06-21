@@ -10,7 +10,7 @@ from dataStructure.dataset import Dataset
 def main():
     # create the top-level parser
     parser = argparse.ArgumentParser(prog='fairness benchmarks',
-                                     description='performs various discrimination measures on a given dataset',
+                                     description='performs various discrimination group_fairness_metrics on a given dataset',
                                      epilog="=== === === end === === ===")
     parser.add_argument("-f", "--file", nargs='*', help="provide a dataset as csv-file to the algorithms")
     subparsers = parser.add_subparsers(help='sub-command help')

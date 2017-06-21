@@ -4,6 +4,8 @@ Created on Jun 14, 2017
 @author: meike.zehlike
 '''
 import pandas as pd
+from tables.table import Column
+from numpy import number, integer
 
 
 class Dataset(object):
@@ -18,19 +20,44 @@ class Dataset(object):
         """
         return self.__data
 
-    def __init__(self, filename):
+
+    @property
+    def protected_cols(self):
+        return self.__protected_cols
+
+
+    @property
+    def target_cols(self):
+        return self.__target_cols
+
+
+    def __init__(self, data):
         '''
         Constructor
         '''
-        self.__data = pd.read_csv(filename, header=0)
+        if isinstance(data, str):
+            # expect data to be a filename
+            self.__data = pd.read_csv(data, header=0)
+        elif isinstance(data, pd.DataFrame):
+            self.__data = data
 
-        protected_cols = [col for col in self.data.columns.values if col.startswith('protected')]
-        target_cols = [col for col in self.data.columns if col.startswith('target')]
+        self.__protected_cols = [col for col in self.data.columns.values if col.startswith('protected')]
+        self.__target_cols = [col for col in self.data.columns if col.startswith('target')]
 
         # check if dataset is well-formed
-        if not protected_cols:
+        if not self.__protected_cols:
             raise ValueError("The dataset should contain at least one column that describes a protection status")
-        if not target_cols:
+        if not self.__target_cols:
             raise ValueError("The dataset should contain at least one column that describes a target variable")
+
+        # check that protected attributes are indicated by integers
+        for protected_column in self.__protected_cols:
+            column_values = self.__data[protected_column]
+            protection_categories = column_values.unique()
+            if not all(isinstance(item, integer) for item in protection_categories):
+                raise ValueError("Protection status should be indicated by integers only")
+
+
+
 
 
