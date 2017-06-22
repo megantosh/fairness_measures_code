@@ -14,12 +14,12 @@ Esse officia ad proident jowl et prosciutto. Tri-tip do reprehenderit ball tip v
 
 Flank beef ribs ad in boudin short ribs shankle hamburger magna leberkas in. Doner ex burgdoggen consequat, officia drumstick laborum minim anim hamburger. Ullamco cupim cillum, cow kielbasa enim exercitation. Frankfurter dolore qui sirloin. Cupidatat exercitation magna sed non cupim pork loin. Short loin ut doner et duis picanha.
 
-# Datasets
+<a name ="datasets"># Datasets </a>
 
-| Dataset                          	| Quality Criterion 	| # Entries 	| Protected Criteria 	| Source                                                                                         	| Format 	|
-|----------------------------------	|-------------------	|-----------	|--------------------	|------------------------------------------------------------------------------------------------	|--------	|
-| COMPAS Recidivism Risk           	| recidivism        	| 18,000    	| - race - sex       	| [ProPublica](https://github.com/propublica/compas-analysis)                                    	| csv    	|
-| Statlog - German Credit (SCHUFA) 	| credit rating     	| 1000      	|                    	| [Prof. Dr. Hans Hofmann](https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)) 	| csv    	|
-| SAT                              	| test score        	| 1,600,000 	|                    	| [CollegeBoard](https://research.collegeboard.org/programs/sat/data/sat-data-tables)            	|        	|
+| Dataset                          	| Quality Criterion 	| # Entries 	| Format 	|
+|----------------------------------	|-------------------	|-----------	|--------	|
+| COMPAS Recidivism Risk           	| recidivism        	| 18,000    	| csv    	|
+| Statlog - German Credit (SCHUFA) 	| credit rating     	| 1000      	| csv    	|
+| SAT                              	| test score        	| 1,600,000 	| pdf      	|
 |                                  	|                   	|           	|                    	|                                                                                                	|        	|
 |                                  	|                   	|           	|                    	|                                                                                                	|        	|
