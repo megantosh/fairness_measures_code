@@ -8,18 +8,28 @@ The Fairness Measures Project provides a platform for collecting datasets that c
 
 # About The Data
 
-Prosciutto porchetta corned beef biltong, magna tempor t-bone. Duis do boudin turkey aliquip ex nulla pork belly. Pork loin ut t-bone capicola pork jowl, pariatur anim esse quis tongue irure laborum non dolore. Aliqua anim excepteur pork. Lorem spare ribs ea swine, eu deserunt non tempor meatloaf kevin.
+The datasets were collected from various sources and show an element of discrimination with respect to certain minority individuals and groups. Each Dataset includes information about the respective discriminatory profile.
 
-Esse officia ad proident jowl et prosciutto. Tri-tip do reprehenderit ball tip venison, consequat ut. Ham hock meatloaf strip steak in, enim nostrud shank porchetta. Shank kielbasa aliquip ham hock, boudin porchetta corned beef jerky pancetta in labore tongue pastrami dolore.
 
-Flank beef ribs ad in boudin short ribs shankle hamburger magna leberkas in. Doner ex burgdoggen consequat, officia drumstick laborum minim anim hamburger. Ullamco cupim cillum, cow kielbasa enim exercitation. Frankfurter dolore qui sirloin. Cupidatat exercitation magna sed non cupim pork loin. Short loin ut doner et duis picanha.
-
-<a name ="datasets"># Datasets </a>
+<a name ="datasets"><h1> Datasets </h1></a>
 
 | Dataset                          	| Quality Criterion 	| # Entries 	| Format 	|
 |----------------------------------	|-------------------	|-----------	|--------	|
-| COMPAS Recidivism Risk           	| recidivism        	| 18,000    	| csv    	|
-| Statlog - German Credit (SCHUFA) 	| credit rating     	| 1000      	| csv    	|
-| SAT                              	| test score        	| 1,600,000 	| pdf      	|
+| COMPAS Recidivism Risk           	| recidivism        	| 18K    	| csv    	|
+| Statlog - German Credit (SCHUFA) 	| credit rating     	| 1k      	| csv    	|
+| SAT                              	| test score        	| 1,600k 	| pdf      	|
 |                                  	|                   	|           	|                    	|                                                                                                	|        	|
 |                                  	|                   	|           	|                    	|                                                                                                	|        	|
+
+#Citation
+If you decide to use one of our datasets in your work, please consider using the following BibTeX citation:
+
+```
+@misc{fairness-Measures,
+  author       = {Meike Zehlike and Carlos Castillo and Francesco Bonchi and Sara Hajian and Mohamed Megahed},
+  title        = {{Fairness Measures Datasets}: {TU Berlin} %Dataset Collection%},
+  howpublished = {\url{http://fairness-measures.org}},
+  month        = jun,
+  year         = 2017
+}
+```
