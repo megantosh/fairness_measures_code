@@ -165,7 +165,7 @@ th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #e5e5e5; 
 dt { color: #444; font-weight: 700; }
 
 th { color: #444; }
-
+tr:nth-child(even) {background-color: #0086B3}
 img { max-width: 100%; }
 
 header { width: 270px; float: left; position: fixed; -webkit-font-smoothing: subpixel-antialiased; }
