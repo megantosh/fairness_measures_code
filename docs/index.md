@@ -13,15 +13,13 @@ The datasets were collected from various sources and show an element of discrimi
 
 <a name ="datasets"><h1> Datasets </h1></a>
 
-| Dataset                          	| Quality Criterion 	| # Entries 	| Format 	|
-|----------------------------------	|-------------------	|-----------	|--------	|
-| COMPAS Recidivism Risk           	| recidivism        	| 18K    	| csv    	|
-| Statlog - German Credit (SCHUFA) 	| credit rating     	| 1k      	| csv    	|
-| SAT                              	| test score        	| 1,600k 	| pdf      	|
-|                                  	|                   	|           	|                    	|                                                                                                	|        	|
-|                                  	|                   	|           	|                    	|                                                                                                	|        	|
+| Dataset                          	| Quality Criterion 	| # Entries 	| Format |
+|----------------------------------	|-------------------	|-----------	|--------|
+| COMPAS Recidivism Risk           	| recidivism        	| 18K    	    | csv |
+| Statlog - German Credit (SCHUFA) 	| credit rating     	| 1k        	| csv |
+| SAT                              	| test score        	| 1,600k 	    | pdf |
 
-#Citation
+# Citation
 If you decide to use one of our datasets in your work, please consider using the following BibTeX citation:
 
 ```
