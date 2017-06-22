@@ -11,7 +11,7 @@ The Fairness Measures Project provides a platform for collecting datasets that c
 The datasets were collected from various sources and show an element of discrimination with respect to certain minority individuals and groups. Each Dataset includes information about the respective discriminatory profile.
 
 
-<a name ="datasets"><h1> Datasets </h1></a>
+<h1><a name ="datasets"> Datasets </a></h1>
 
 | Dataset                          	| Quality Criterion 	| # Entries 	| Format |
 |----------------------------------	|-------------------	|-----------	|--------|
