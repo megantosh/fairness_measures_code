@@ -161,7 +161,7 @@ pre { padding: 8px 15px; background: #f8f8f8; border-radius: 5px; border: 1px so
 table { width: 100%; border-collapse: collapse; }
 
 th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #393939; }
-th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #e5e5e5; }
+/*th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #e5e5e5; }*/
 
 dt { color: #444; font-weight: 700; }
 
