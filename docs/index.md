@@ -25,8 +25,7 @@ If you decide to use one of our datasets in your work, please consider using the
 ```bibtex
 @misc{fairness-Measures,
   author       = {Meike Zehlike and Carlos Castillo and Francesco Bonchi and Sara Hajian and Mohamed Megahed},
-<!--   title        = {{Fairness Measures Datasets}: {TU Berlin}:%Dataset Collection%},
- -->  howpublished = {\url{http://fairness-measures.org}},
+  howpublished = {\url{http://fairness-measures.org}},
   month        = jun,
   year         = 2017
 }
