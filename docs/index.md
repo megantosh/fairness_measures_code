@@ -15,18 +15,7 @@ The datasets were collected from various sources and show an element of discrimi
 
 | Dataset                          	| Quality Criterion 	| # Entries 	| Format |
 |----------------------------------	|-------------------	|-----------	|--------|
-| COMPAS Recidivism Risk           	| recidivism        	| 18K    	    | csv |
+| [COMPAS Recidivism Risk](docs/Pages/Datasets/Compas.md)           	| recidivism        	| 18K    	    | csv |
 | Statlog - German Credit (SCHUFA) 	| credit rating     	| 1k        	| csv |
 | SAT                              	| test score        	| 1,600k 	    | pdf |
 
-# Citation
-If you decide to use one of our datasets in your work, please consider using the following BibTeX citation:
-
-```bibtex
-@misc{fairness-Measures,
-  author       = {Meike Zehlike and Carlos Castillo and Francesco Bonchi and Sara Hajian and Mohamed Megahed},
-  howpublished = {\url{http://fairness-measures.org}},
-  month        = jun,
-  year         = 2017
-}
-```
