@@ -58,6 +58,11 @@ class Dataset(object):
                 raise ValueError("Protection status should be indicated by integers only")
 
 
+    def normalize_column(self, column_name):
+        mean_col = self.data[column_name].dropna().mean()
+        min_col = self.data[column_name].dropna().min()
+        max_col = self.data[column_name].dropna().max()
+        self.data[column_name] = self.data[column_name].apply(lambda x: (x - mean_col) / (max_col - min_col))
 
 
 
