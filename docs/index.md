@@ -8,18 +8,14 @@ The Fairness Measures Project provides a platform for collecting datasets that c
 
 # About The Data
 
-Prosciutto porchetta corned beef biltong, magna tempor t-bone. Duis do boudin turkey aliquip ex nulla pork belly. Pork loin ut t-bone capicola pork jowl, pariatur anim esse quis tongue irure laborum non dolore. Aliqua anim excepteur pork. Lorem spare ribs ea swine, eu deserunt non tempor meatloaf kevin.
+The datasets were collected from various sources and show an element of discrimination with respect to certain minority individuals and groups. Each Dataset includes information about the respective discriminatory profile.
 
-Esse officia ad proident jowl et prosciutto. Tri-tip do reprehenderit ball tip venison, consequat ut. Ham hock meatloaf strip steak in, enim nostrud shank porchetta. Shank kielbasa aliquip ham hock, boudin porchetta corned beef jerky pancetta in labore tongue pastrami dolore.
 
-Flank beef ribs ad in boudin short ribs shankle hamburger magna leberkas in. Doner ex burgdoggen consequat, officia drumstick laborum minim anim hamburger. Ullamco cupim cillum, cow kielbasa enim exercitation. Frankfurter dolore qui sirloin. Cupidatat exercitation magna sed non cupim pork loin. Short loin ut doner et duis picanha.
+<h1><a name ="datasets"> Datasets </a></h1>
 
-# Datasets
+| Dataset                          	| Quality Criterion 	| # Entries 	| Format |
+|----------------------------------	|-------------------	|-----------	|--------|
+| [COMPAS Recidivism Risk](Pages/Datasets/Compas.md)           	| recidivism        	| 18K    	    | csv |
+| [Statlog - German Credit (SCHUFA](Pages/Datasets/Schufa.md) 	| credit rating     	| 1k        	| csv |
+| [SAT](Pages/Datasets/SAT.md)                              	| test score        	| 1,600k 	    | pdf |
 
-| Dataset                          	| Quality Criterion 	| # Entries 	| Protected Criteria 	| Source                                                                                         	| Format 	|
-|----------------------------------	|-------------------	|-----------	|--------------------	|------------------------------------------------------------------------------------------------	|--------	|
-| COMPAS Recidivism Risk           	| recidivism        	| 18,000    	| - race - sex       	| [ProPublica](https://github.com/propublica/compas-analysis)                                    	| csv    	|
-| Statlog - German Credit (SCHUFA) 	| credit rating     	| 1000      	|                    	| [Prof. Dr. Hans Hofmann](https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)) 	| csv    	|
-| SAT                              	| test score        	| 1,600,000 	|                    	| [CollegeBoard](https://research.collegeboard.org/programs/sat/data/sat-data-tables)            	|        	|
-|                                  	|                   	|           	|                    	|                                                                                                	|        	|
-|                                  	|                   	|           	|                    	|                                                                                                	|        	|
