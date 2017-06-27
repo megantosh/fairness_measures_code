@@ -12,7 +12,7 @@
 
 <b>Number of Attributes:</b> 8
 
-<b>Year:</b> 1995
+<b>Year:</b> 1995.
 
 <b>Source:</b> [SNAP](https://snap.stanford.edu/data/)
 
