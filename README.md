@@ -1,1 +1,1 @@
-# discrimination_measures
+# Fairness_Measures
