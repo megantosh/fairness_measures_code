@@ -34,7 +34,7 @@ class Test(unittest.TestCase):
         testing.assert_frame_equal(expected_result, dataset.data, check_less_precise=True)
 
 
-    def test_prob_accepted_given_protection_status(self):
+    def test_conditional_prob_of_acceptance(self):
         raise NotImplementedError
 
 

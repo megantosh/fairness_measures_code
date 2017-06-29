@@ -4,6 +4,7 @@ Created on Jun 14, 2017
 @author: meike.zehlike
 '''
 import pandas as pd
+import numpy as np
 from numpy import integer
 
 
@@ -64,7 +65,37 @@ class Dataset(object):
         self.data[column_name] = self.data[column_name].apply(lambda x: (x - mean_col) / (max_col - min_col))
 
 
+    def conditional_prob_of_acceptance(self, target_col, protected_col):
+        """
+        calculates the conditional probability for each group (protected and favored to be classified
+        as positive.
+        Assumes that classification results are binary, either positive or negative
 
+        @param target_col: name of the column in data that contains the classification results
+        @param protected_col: name of the column in data that contains the protection status
+
+        @return: a dictionary with protection status as key and conditional probability as value
+
+        """
+        if target_col not in self.target_cols:
+            raise ValueError("given target column doesn't exist")
+
+        if protected_col not in self.protected_cols:
+            raise ValueError("given protected column doesn't exist")
+
+        conditional_probs = {}
+        unique, counts = np.unique(self.data[protected_col], return_counts=True)
+        protected_group_counts = dict(zip(unique, counts))
+
+        # calculate conditional probability of positive outcome given each group category
+        all_positives = (self.data[target_col] == 1).sum()
+        for group_category, xxx in protected_group_counts.items():
+            values_of_category = self.data.loc[self.data[protected_col] == group_category, target_col]
+            positive_and_category = (values_of_category == 1).sum()
+            prob_pos_given_cat = positive_and_category / all_positives
+            conditional_probs[group_category] = prob_pos_given_cat
+
+        return conditional_probs
 
 
 

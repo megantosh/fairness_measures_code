@@ -86,16 +86,7 @@ def normalized_difference(dataset, target_col, protected_col):
                           group and one protected group.")
 
     protected_group_counts = dict(zip(unique, counts))
-
-    conditional_probs = {}
-
-    # calculate conditional probability of positive outcome given each group category
-    all_positives = (dataset.data[target_col] == 1).sum()
-    for group_category, xxx in protected_group_counts.items():
-        values_of_category = dataset.data.loc[dataset.data[protected_col] == group_category, target_col]
-        positive_and_category = (values_of_category == 1).sum()
-        prob_pos_given_cat = positive_and_category / all_positives
-        conditional_probs[group_category] = prob_pos_given_cat
+    conditional_probs = dataset.conditional_prob_of_acceptance(target_col, protected_col)
 
     unique, counts = np.unique(dataset.data[target_col], return_counts=True)
     outcome_counts = dict(zip(unique, counts))
@@ -110,8 +101,6 @@ def normalized_difference(dataset, target_col, protected_col):
     delta = (conditional_probs[0] - conditional_probs[1]) / d_max
 
     return delta
-
-
 
 
 
