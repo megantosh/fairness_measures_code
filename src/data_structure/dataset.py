@@ -4,8 +4,7 @@ Created on Jun 14, 2017
 @author: meike.zehlike
 '''
 import pandas as pd
-from tables.table import Column
-from numpy import number, integer
+from numpy import integer
 
 
 class Dataset(object):
@@ -63,6 +62,9 @@ class Dataset(object):
         min_col = self.data[column_name].dropna().min()
         max_col = self.data[column_name].dropna().max()
         self.data[column_name] = self.data[column_name].apply(lambda x: (x - mean_col) / (max_col - min_col))
+
+
+
 
 
 

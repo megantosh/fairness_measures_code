@@ -16,9 +16,10 @@ def mean_difference(dataset, target_column, protected_column, non_protected=0):
     Each protected mean of predictions is subtracted from the non-protected mean.
 
     @param dataset: data that contains all target and protected variables
-    @param target_column: column that contains the prediction values
-    @param protected_column: the column that contains the protected variables
+    @param target_column: name of the column that contains the prediction values
+    @param protected_column: name of the column that contains the protection status
     @param non-protected: the value within protected_column that describes the non-protected category
+                          zero on default
 
     @return: a python dataframe that contains the target as column name and the protection
     categories from protected_column as indices. Note that the non-protected category is excluded as
@@ -33,8 +34,6 @@ def mean_difference(dataset, target_column, protected_column, non_protected=0):
 
     if target_column not in dataset.target_cols:
         raise ValueError("given target column name doesn't exist in dataset. Check spelling.")
-
-    # normalize prediction scores
 
 
     result = pd.DataFrame()
@@ -60,13 +59,57 @@ def mean_difference(dataset, target_column, protected_column, non_protected=0):
     return result
 
 
-def normalized_difference(dataset, target_col, protected_col, non_protected=0):
-    result = pd.DataFrame()
+def normalized_difference(dataset, target_col, protected_col):
+    """
+    calculates the difference between the probability of being accepted given being a favored group
+    member and the probability of being accepted given being a protected group member. This difference
+    is normalized by the ratio of all accepted candidates by all favored candidates.
+    Non-Discrimination is indicated when no difference in these probabilities exist. Maximum
+    discrimination is indicated when the result is 1, i.e. the probability of being accepted as a
+    favored is 1 whereas it is 0 for a protected group member.
 
+    Only works for the binary case -> one protected group, one non-protected group, classification
+    result is either positive or negative
 
+    Assumes that in the dataset the favored group is labeled with protection status 0, protected group
+    with 1
+    Assumes that in the dataset the positive outcome is labeled as 1, negative as 0
 
-    return result
+    @param protected_col: name of the column that contains the protection status
+    @param target_col: name of the column that contains the classifier results
+    """
 
+    unique, counts = np.unique(dataset.data[protected_col], return_counts=True)
+
+    if len(unique) > 2:
+        raise ValueError("This function is for binary problems only: There should be only one favored\
+                          group and one protected group.")
+
+    protected_group_counts = dict(zip(unique, counts))
+
+    conditional_probs = {}
+
+    # calculate conditional probability of positive outcome given each group category
+    all_positives = (dataset.data[target_col] == 1).sum()
+    for group_category, xxx in protected_group_counts.items():
+        values_of_category = dataset.data.loc[dataset.data[protected_col] == group_category, target_col]
+        positive_and_category = (values_of_category == 1).sum()
+        prob_pos_given_cat = positive_and_category / all_positives
+        conditional_probs[group_category] = prob_pos_given_cat
+
+    unique, counts = np.unique(dataset.data[target_col], return_counts=True)
+    outcome_counts = dict(zip(unique, counts))
+
+    prob_pos = outcome_counts[1] / len(dataset.data.index)
+    prob_neg = outcome_counts[0] / len(dataset.data.index)
+    prob_prot = protected_group_counts[1] / len(dataset.data.index)
+    prob_fav = protected_group_counts[0] / len(dataset.data.index)
+
+    d_max = min((prob_pos / prob_fav), (prob_neg / prob_prot))
+
+    delta = (conditional_probs[0] - conditional_probs[1]) / d_max
+
+    return delta
 
 
 
