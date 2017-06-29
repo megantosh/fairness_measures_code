@@ -103,6 +103,17 @@ def normalized_difference(dataset, target_col, protected_col):
     return delta
 
 
+def impact_ratio(dataset, target_col, protected_col):
+    """
+    calculates the ratio of positive outcomes for the protected group over the general group. Non-
+    discrimination is indicated when the ratio is 1
+
+    @param dataset:
+    @param target_col:  name of the column that contains the classifier results
+    @param protected_col: name of the column that contains the protection status
+    """
+    conditional_probs = dataset.conditional_prob_of_acceptance(target_col, protected_col)
+    return conditional_probs[1] / conditional_probs[0]
 
 
 

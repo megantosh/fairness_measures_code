@@ -61,6 +61,8 @@ class Test(unittest.TestCase):
         self.assertEqual(0.5, am.normalized_difference(dataset, "target", "protected"))
 
 
+    def test_impact_ratio(self):
+        raise NotImplementedError
 
 if __name__ == "__main__":
     unittest.main()
