@@ -40,7 +40,7 @@ class Test(unittest.TestCase):
         dataset = Dataset(data)
 
         expected_result = {0:1.0, 1:1.0}
-        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        actual_result = dataset.conditional_prob_for_group_category("target", "protected", 1)
         self.assertDictEqual(expected_result, actual_result)
 
         #========================================================================
@@ -50,7 +50,7 @@ class Test(unittest.TestCase):
         dataset = Dataset(data)
 
         expected_result = {0:0.0, 1:0.0}
-        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        actual_result = dataset.conditional_prob_for_group_category("target", "protected", 1)
         self.assertDictEqual(expected_result, actual_result)
 
         #=========================================================================
@@ -60,7 +60,7 @@ class Test(unittest.TestCase):
         dataset = Dataset(data)
 
         expected_result = {0:0.5, 1:0.5}
-        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        actual_result = dataset.conditional_prob_for_group_category("target", "protected", 1)
         self.assertDictEqual(expected_result, actual_result)
 
         #=========================================================================
@@ -70,7 +70,7 @@ class Test(unittest.TestCase):
         dataset = Dataset(data)
 
         expected_result = {0:1.0, 1:0.0}
-        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        actual_result = dataset.conditional_prob_for_group_category("target", "protected", 1)
         self.assertDictEqual(expected_result, actual_result)
 
         #=========================================================================
@@ -80,7 +80,7 @@ class Test(unittest.TestCase):
         dataset = Dataset(data)
 
         expected_result = {0:0.0, 1:1.0}
-        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        actual_result = dataset.conditional_prob_for_group_category("target", "protected", 1)
         self.assertDictEqual(expected_result, actual_result)
 
 

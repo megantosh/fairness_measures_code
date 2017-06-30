@@ -65,14 +65,16 @@ class Dataset(object):
         self.data[column_name] = self.data[column_name].apply(lambda x: (x - mean_col) / (max_col - min_col))
 
 
-    def conditional_prob_of_acceptance(self, target_col, protected_col):
+    def conditional_prob_for_group_category(self, target_col, protected_col, acceptance):
         """
-        calculates the conditional probability for each group (protected and favored to be classified
-        as positive.
+        calculates the conditional probability for each group (protected and favored) to be classified
+        as positive (if acceptance=1) or negative respectively (if acceptance=0).
         Assumes that classification results are binary, either positive or negative
 
-        @param target_col: name of the column in data that contains the classification results
-        @param protected_col: name of the column in data that contains the protection status
+        @param target_col:      name of the column in data that contains the classification results
+        @param protected_col:   name of the column in data that contains the protection status
+        @param acceptance:      int that says if the conditional probability of being accepted should be
+                                calculated or the one of being rejected
 
         @return: a dictionary with protection status as key and conditional probability as value
 
@@ -90,11 +92,11 @@ class Dataset(object):
         # calculate conditional probability of positive outcome given each group category
         for group_category, member_count in protected_group_counts.items():
             values_of_category = self.data.loc[self.data[protected_col] == group_category, target_col]
-            positive_and_category = (values_of_category == 1).sum()
-            prob_pos_given_cat = positive_and_category / member_count
-            conditional_probs[group_category] = prob_pos_given_cat
+            classification_and_category = (values_of_category == acceptance).sum()
+            conditional_probs[group_category] = classification_and_category / member_count
 
         return conditional_probs
+
 
 
 

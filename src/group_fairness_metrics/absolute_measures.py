@@ -86,7 +86,7 @@ def normalized_difference(dataset, target_col, protected_col):
                           group and one protected group.")
 
     protected_group_counts = dict(zip(unique, counts))
-    conditional_probs = dataset.conditional_prob_of_acceptance(target_col, protected_col)
+    conditional_probs = dataset.conditional_prob_for_group_category(target_col, protected_col, 1)
 
     counts_pos = (dataset.data[target_col] == 1).sum()
     counts_neg = (dataset.data[target_col] == 0).sum()
@@ -112,11 +112,11 @@ def impact_ratio(dataset, target_col, protected_col):
     discrimination is indicated when the ratio is 1
 
     @param dataset:
-    @param target_col:  name of the column that contains the classifier results
-    @param protected_col: name of the column that contains the protection status
+    @param target_col:      name of the column that contains the classifier results
+    @param protected_col:   name of the column that contains the protection status
 
     """
-    conditional_probs = dataset.conditional_prob_of_acceptance(target_col, protected_col)
+    conditional_probs = dataset.conditional_prob_for_group_category(target_col, protected_col, 1)
 
     if conditional_probs[0] == 0:
         raise ZeroDivisionError
@@ -124,7 +124,17 @@ def impact_ratio(dataset, target_col, protected_col):
     return conditional_probs[1] / conditional_probs[0]
 
 
+def odds_ratio(dataset, target_col, protected_col):
+    """
+    measures association between exposure and outcome
+    """
+    conditional_probs_positive = dataset.conditional_prob_for_group_category(target_col, protected_col, 1)
+    conditional_probs_negative = dataset.conditional_prob_for_group_category(target_col, protected_col, 0)
 
+    if (conditional_probs_positive[1] * conditional_probs_negative[0]) == 0:
+        raise ZeroDivisionError
+
+    return (conditional_probs_positive[0] * conditional_probs_negative[1]) / (conditional_probs_positive[1] * conditional_probs_negative[0])
 
 
 
