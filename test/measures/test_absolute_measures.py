@@ -114,6 +114,10 @@ class Test(unittest.TestCase):
         self.assertRaises(ZeroDivisionError, am.impact_ratio, dataset, "target", "protected")
 
 
+    def test_odds_ratio(self):
+        raise NotImplementedError
+
+
 
 if __name__ == "__main__":
     unittest.main()
