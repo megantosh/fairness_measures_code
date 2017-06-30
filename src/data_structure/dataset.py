@@ -88,11 +88,10 @@ class Dataset(object):
         protected_group_counts = dict(zip(unique, counts))
 
         # calculate conditional probability of positive outcome given each group category
-        all_positives = (self.data[target_col] == 1).sum()
-        for group_category, xxx in protected_group_counts.items():
+        for group_category, member_count in protected_group_counts.items():
             values_of_category = self.data.loc[self.data[protected_col] == group_category, target_col]
             positive_and_category = (values_of_category == 1).sum()
-            prob_pos_given_cat = positive_and_category / all_positives
+            prob_pos_given_cat = positive_and_category / member_count
             conditional_probs[group_category] = prob_pos_given_cat
 
         return conditional_probs

@@ -35,7 +35,53 @@ class Test(unittest.TestCase):
 
 
     def test_conditional_prob_of_acceptance(self):
-        raise NotImplementedError
+        data = pd.DataFrame({'target': [1, 1, 1, 1, 1, 1, 1, 1],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+        dataset = Dataset(data)
+
+        expected_result = {0:1.0, 1:1.0}
+        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        self.assertDictEqual(expected_result, actual_result)
+
+        #========================================================================
+
+        data = pd.DataFrame({'target': [0, 0, 0, 0, 0, 0, 0, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+        dataset = Dataset(data)
+
+        expected_result = {0:0.0, 1:0.0}
+        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        self.assertDictEqual(expected_result, actual_result)
+
+        #=========================================================================
+
+        data = pd.DataFrame({'target': [1, 1, 1, 1, 0, 0, 0, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+        dataset = Dataset(data)
+
+        expected_result = {0:0.5, 1:0.5}
+        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        self.assertDictEqual(expected_result, actual_result)
+
+        #=========================================================================
+
+        data = pd.DataFrame({'target': [1, 0, 1, 0, 1, 0, 1, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+        dataset = Dataset(data)
+
+        expected_result = {0:1.0, 1:0.0}
+        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        self.assertDictEqual(expected_result, actual_result)
+
+        #=========================================================================
+
+        data = pd.DataFrame({'target': [0, 1, 0, 1, 0, 1, 0, 1],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+        dataset = Dataset(data)
+
+        expected_result = {0:0.0, 1:1.0}
+        actual_result = dataset.conditional_prob_of_acceptance("target", "protected")
+        self.assertDictEqual(expected_result, actual_result)
 
 
 if __name__ == "__main__":

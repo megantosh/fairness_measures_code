@@ -88,8 +88,9 @@ def normalized_difference(dataset, target_col, protected_col):
     protected_group_counts = dict(zip(unique, counts))
     conditional_probs = dataset.conditional_prob_of_acceptance(target_col, protected_col)
 
-    unique, counts = np.unique(dataset.data[target_col], return_counts=True)
-    outcome_counts = dict(zip(unique, counts))
+    counts_pos = (dataset.data[target_col] == 1).sum()
+    counts_neg = (dataset.data[target_col] == 0).sum()
+    outcome_counts = {0:counts_neg, 1:counts_pos}
 
     prob_pos = outcome_counts[1] / len(dataset.data.index)
     prob_neg = outcome_counts[0] / len(dataset.data.index)
@@ -98,8 +99,10 @@ def normalized_difference(dataset, target_col, protected_col):
 
     d_max = min((prob_pos / prob_fav), (prob_neg / prob_prot))
 
-    delta = (conditional_probs[0] - conditional_probs[1]) / d_max
+    if d_max == 0:
+        raise ZeroDivisionError
 
+    delta = (conditional_probs[0] - conditional_probs[1]) / d_max
     return delta
 
 
@@ -111,8 +114,13 @@ def impact_ratio(dataset, target_col, protected_col):
     @param dataset:
     @param target_col:  name of the column that contains the classifier results
     @param protected_col: name of the column that contains the protection status
+
     """
     conditional_probs = dataset.conditional_prob_of_acceptance(target_col, protected_col)
+
+    if conditional_probs[0] == 0:
+        raise ZeroDivisionError
+
     return conditional_probs[1] / conditional_probs[0]
 
 

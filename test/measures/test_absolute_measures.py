@@ -53,16 +53,75 @@ class Test(unittest.TestCase):
         #===========================================================================
 
         # bit of discrimination
-
         data = pd.DataFrame({'target': [1, 1, 0, 0, 1, 0, 1, 0],
                              'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
         dataset = Dataset(data)
         self.assertEqual(0.5, am.normalized_difference(dataset, "target", "protected"))
 
+        #===========================================================================
+
+        # if no-one is selected function would raise zero division error
+        data = pd.DataFrame({'target': [0, 0, 0, 0, 0, 0, 0, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        self.assertRaises(ZeroDivisionError, am.normalized_difference, dataset, "target", "protected")
+
+        #===========================================================================
+
+        # if everybody is selected function would raise zero division error
+        data = pd.DataFrame({'target': [1, 1, 1, 1, 1, 1, 1, 1],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        self.assertRaises(ZeroDivisionError, am.normalized_difference, dataset, "target", "protected")
+
 
     def test_impact_ratio(self):
-        raise NotImplementedError
+        # no discrimination
+        data = pd.DataFrame({'target': [1, 1, 0, 0, 1, 1, 0, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        self.assertEqual(1, am.impact_ratio(dataset, "target", "protected"))
+
+        #===========================================================================
+
+        # maximal discrimination
+        data = pd.DataFrame({'target': [1, 0, 1, 0, 1, 0, 1, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        self.assertEqual(0, am.impact_ratio(dataset, "target", "protected"))
+
+        #===========================================================================
+
+        # bit of discrimination
+        data = pd.DataFrame({'target': [1, 1, 0, 0, 1, 0, 1, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        self.assertEqual(1 / 3, am.impact_ratio(dataset, "target", "protected"))
+
+        #===========================================================================
+
+        # inverse discrimination would raise zero division error
+        data = pd.DataFrame({'target': [0, 1, 0, 1, 0, 1, 0, 1],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        self.assertRaises(ZeroDivisionError, am.impact_ratio, dataset, "target", "protected")
+
+
 
 if __name__ == "__main__":
     unittest.main()
+
+
+
+
+
+
+
+
