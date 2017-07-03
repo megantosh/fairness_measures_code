@@ -115,9 +115,40 @@ class Test(unittest.TestCase):
 
 
     def test_odds_ratio(self):
-        raise NotImplementedError
+        # no discrimination
+        data = pd.DataFrame({'target': [1, 1, 0, 0, 1, 1, 0, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
+        dataset = Dataset(data)
+        self.assertEqual(1, am.odds_ratio(dataset, "target", "protected"))
 
+        #===========================================================================
+
+        # the probability of being accepted as a protected group member is in this case zero
+        # hence should lead into a ZeroDivisionError
+        data = pd.DataFrame({'target': [1, 0, 1, 0, 1, 0, 1, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        self.assertRaises(ZeroDivisionError, am.odds_ratio, dataset, "target", "protected")
+
+        #===========================================================================
+
+        # inverse discrimination
+        data = pd.DataFrame({'target': [0, 1, 0, 1, 0, 1, 0, 1],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        self.assertEqual(0, am.odds_ratio(dataset, "target", "protected"))
+
+        #===========================================================================
+
+        # bit of discrimination, value should be greater than one
+        data = pd.DataFrame({'target': [1, 1, 0, 0, 1, 0, 1, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        self.assertGreater(1, am.odds_ratio(dataset, "target", "protected"))
 
 if __name__ == "__main__":
     unittest.main()
