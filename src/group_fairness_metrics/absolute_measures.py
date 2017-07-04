@@ -5,6 +5,7 @@ Created on Jun 13, 2017
 '''
 import numpy as np
 import pandas as pd
+from scipy.stats import stats
 
 def mean_difference(dataset, target_column, protected_column, non_protected=0):
     """
@@ -126,15 +127,24 @@ def impact_ratio(dataset, target_col, protected_col):
 
 def odds_ratio(dataset, target_col, protected_col):
     """
-    measures association between exposure and outcome
+    Performs a Fisher exact test on a 2x2 contingency table as in scipy.stats.fisher_exact()
+    the odds ratio measures association between exposure and outcome.
+
+    @param dataset:
+    @param target_col:      name of the column that contains the classifier results
+    @param protected_col:   name of the column that contains the protection status
+
+    @return: odds ratio and related pvalue
     """
-    conditional_probs_positive = dataset.conditional_prob_for_group_category(target_col, protected_col, 1)
-    conditional_probs_negative = dataset.conditional_prob_for_group_category(target_col, protected_col, 0)
+    positive_protected = dataset.count_classification_and_category(target_col, protected_col, protected=1, accepted=1)
+    negative_protected = dataset.count_classification_and_category(target_col, protected_col, protected=1, accepted=0)
+    positive_nonprotected = dataset.count_classification_and_category(target_col, protected_col, protected=0, accepted=1)
+    negative_nonprotected = dataset.count_classification_and_category(target_col, protected_col, protected=0, accepted=0)
 
-    if (conditional_probs_positive[1] * conditional_probs_negative[0]) == 0:
-        raise ZeroDivisionError
+    contingency_table = [[positive_protected, negative_protected], [positive_nonprotected, negative_nonprotected]]
 
-    return (conditional_probs_positive[0] * conditional_probs_negative[1]) / (conditional_probs_positive[1] * conditional_probs_negative[0])
+    return stats.fisher_exact(contingency_table)
+
 
 
 

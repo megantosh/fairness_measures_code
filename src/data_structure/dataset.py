@@ -65,15 +65,37 @@ class Dataset(object):
         self.data[column_name] = self.data[column_name].apply(lambda x: (x - mean_col) / (max_col - min_col))
 
 
-    def conditional_prob_for_group_category(self, target_col, protected_col, acceptance):
+    def count_classification_and_category(self, target_col, protected_col, protected, accepted):
+        """
+        counts the number of items that have the desired combination of protection status and
+        classification result.
+        Example: default returns the number of non-protected that where classified negative
+
+        @param target_col:      name of the column in data that contains the classification results
+        @param protected_col:   name of the column in data that contains the protection status
+        @param protected:       defines which protection status should be counted
+        @param accepted:        defines which classification result should be counted
+
+        @return: the number of occurrences of the given protection/classification combination
+        0 either if the given protected group does not exist or is not classified into the
+        given class
+
+        """
+
+        # get all classification results for given protected group
+        classes_for_protected = self.data.loc[self.data[protected_col] == protected, target_col]
+        # count those that match given acceptance state
+        return (classes_for_protected == accepted).sum()
+
+    def conditional_prob_for_group_category(self, target_col, protected_col, accepted):
         """
         calculates the conditional probability for each group (protected and favored) to be classified
-        as positive (if acceptance=1) or negative respectively (if acceptance=0).
+        as positive (if accepted=1) or negative respectively (if accepted=0).
         Assumes that classification results are binary, either positive or negative
 
         @param target_col:      name of the column in data that contains the classification results
         @param protected_col:   name of the column in data that contains the protection status
-        @param acceptance:      int that says if the conditional probability of being accepted should be
+        @param accepted:        int that says if the conditional probability of being accepted should be
                                 calculated or the one of being rejected
 
         @return: a dictionary with protection status as key and conditional probability as value
@@ -91,9 +113,9 @@ class Dataset(object):
 
         # calculate conditional probability of positive outcome given each group category
         for group_category, member_count in protected_group_counts.items():
-            values_of_category = self.data.loc[self.data[protected_col] == group_category, target_col]
-            classification_and_category = (values_of_category == acceptance).sum()
-            conditional_probs[group_category] = classification_and_category / member_count
+
+            conditional_probs[group_category] = \
+                self.count_classification_and_category(target_col, protected_col, group_category, accepted) / member_count
 
         return conditional_probs
 
