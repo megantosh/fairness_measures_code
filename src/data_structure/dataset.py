@@ -83,9 +83,24 @@ class Dataset(object):
         """
 
         # get all classification results for given protected group
-        classes_for_protected = self.data.loc[self.data[protected_col] == protected, target_col]
+        classes_for_protected = self.get_all_targets_of_group(target_col, protected_col, protected)
         # count those that match given acceptance state
         return (classes_for_protected == accepted).sum()
+
+
+    def get_all_targets_of_group(self, target_col, protected_col, protected):
+        """
+        returns a vector with all target variables out of a given target column for a given group
+
+        @param target_col:      name of the column in data that contains the classification results
+        @param protected_col:   name of the column in data that contains the protection status
+        @param protected:       defines which group (grouped by protection status) should be considered
+
+        @return: array with target values
+        """
+        return self.data.loc[self.data[protected_col] == protected, target_col]
+
+
 
     def conditional_prob_for_group_category(self, target_col, protected_col, accepted):
         """

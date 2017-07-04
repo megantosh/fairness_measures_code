@@ -8,6 +8,7 @@ import group_fairness_metrics.absolute_measures as am
 import pandas as pd
 from data_structure.dataset import Dataset
 import numpy as np
+from numpy import nan
 
 
 class Test(unittest.TestCase):
@@ -106,12 +107,12 @@ class Test(unittest.TestCase):
 
         #===========================================================================
 
-        # inverse discrimination would raise zero division error
+        # inverse discrimination should return nan, because division by zero is performed
         data = pd.DataFrame({'target': [0, 1, 0, 1, 0, 1, 0, 1],
                              'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
         dataset = Dataset(data)
-        self.assertRaises(ZeroDivisionError, am.impact_ratio, dataset, "target", "protected")
+        self.assertEqual(nan, am.impact_ratio(dataset, "target", "protected"))
 
 
     def test_odds_ratio(self):
@@ -125,12 +126,12 @@ class Test(unittest.TestCase):
         #===========================================================================
 
         # the probability of being accepted as a protected group member is in this case zero
-        # hence should lead into a ZeroDivisionError
+        # hence should return nan
         data = pd.DataFrame({'target': [1, 0, 1, 0, 1, 0, 1, 0],
                              'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
         dataset = Dataset(data)
-        self.assertRaises(ZeroDivisionError, am.odds_ratio, dataset, "target", "protected")
+        self.assertEqual(nan, am.odds_ratio(dataset, "target", "protected"))
 
         #===========================================================================
 
