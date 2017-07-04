@@ -37,10 +37,10 @@ def fisher_exact(dataset, target_col, protected_col):
 
     @return: odds ratio and related pvalue
     """
-    positive_protected = dataset.count_classification_and_category(target_col, protected_col, protected=1, accepted=1)
-    negative_protected = dataset.count_classification_and_category(target_col, protected_col, protected=1, accepted=0)
-    positive_nonprotected = dataset.count_classification_and_category(target_col, protected_col, protected=0, accepted=1)
-    negative_nonprotected = dataset.count_classification_and_category(target_col, protected_col, protected=0, accepted=0)
+    positive_protected = dataset.count_classification_and_category(target_col, protected_col, group=1, accepted=1)
+    negative_protected = dataset.count_classification_and_category(target_col, protected_col, group=1, accepted=0)
+    positive_nonprotected = dataset.count_classification_and_category(target_col, protected_col, group=0, accepted=1)
+    negative_nonprotected = dataset.count_classification_and_category(target_col, protected_col, group=0, accepted=0)
 
     contingency_table = [[positive_protected, negative_protected], [positive_nonprotected, negative_nonprotected]]
 

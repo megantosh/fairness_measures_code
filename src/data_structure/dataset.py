@@ -65,40 +65,40 @@ class Dataset(object):
         self.data[column_name] = self.data[column_name].apply(lambda x: (x - mean_col) / (max_col - min_col))
 
 
-    def count_classification_and_category(self, target_col, protected_col, protected, accepted):
+    def count_classification_and_category(self, target_col, protected_col, group, accepted):
         """
         counts the number of items that have the desired combination of protection status and
         classification result.
-        Example: default returns the number of non-protected that where classified negative
+        Example: group=0 and accepted=0 returns the number of non-protected that where classified negative
 
         @param target_col:      name of the column in data that contains the classification results
         @param protected_col:   name of the column in data that contains the protection status
-        @param protected:       defines which protection status should be counted
+        @param group:       defines which protection status should be counted
         @param accepted:        defines which classification result should be counted
 
         @return: the number of occurrences of the given protection/classification combination
-        0 either if the given protected group does not exist or is not classified into the
+        0 either if the given group group does not exist or is not classified into the
         given class
 
         """
 
-        # get all classification results for given protected group
-        classes_for_protected = self.get_all_targets_of_group(target_col, protected_col, protected)
+        # get all classification results for given group group
+        classes_for_protected = self.get_all_targets_of_group(target_col, protected_col, group)
         # count those that match given acceptance state
         return (classes_for_protected == accepted).sum()
 
 
-    def get_all_targets_of_group(self, target_col, protected_col, protected):
+    def get_all_targets_of_group(self, target_col, protected_col, group):
         """
         returns a vector with all target variables out of a given target column for a given group
 
         @param target_col:      name of the column in data that contains the classification results
         @param protected_col:   name of the column in data that contains the protection status
-        @param protected:       defines which group (grouped by protection status) should be considered
+        @param group:           defines which group (grouped by protection status) should be considered
 
         @return: array with target values
         """
-        return self.data.loc[self.data[protected_col] == protected, target_col]
+        return self.data.loc[self.data[protected_col] == group, target_col].values
 
 
 
