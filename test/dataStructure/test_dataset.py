@@ -5,21 +5,22 @@ Created on Jun 14, 2017
 '''
 import unittest
 import pandas as pd
+import os
 from pandas.util import testing
-import numpy as np
 from data_structure.dataset import Dataset
 
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class Test(unittest.TestCase):
 
     def test_dataframeCreation(self):
-        dataset = Dataset('correctFile.csv')
+        dataset = Dataset(THIS_DIR + '/correctFile.csv')
         self.assertEqual((3, 4), dataset.data.shape, "dataset has wrong dimensions")
 
         with self.assertRaises(ValueError):
-            dataset = Dataset('incorrectFileNoProtected.csv')
+            dataset = Dataset(THIS_DIR + '/incorrectFileNoProtected.csv')
         with self.assertRaises(ValueError):
-            dataset = Dataset('incorrectFileNoTarget.csv')
+            dataset = Dataset(THIS_DIR + '/incorrectFileNoTarget.csv')
 
 
     def test_normalize_column(self):
@@ -159,8 +160,14 @@ class Test(unittest.TestCase):
 
 
     def test_count_classification_and_category(self):
+        data = pd.DataFrame({'target': [1, 1, 1, 1, 1, 0, 0, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+        dataset = Dataset(data)
 
-        raise NotImplementedError
+        self.assertEqual(1, dataset.count_classification_and_category("target", "protected", 0, 0))
+        self.assertEqual(3, dataset.count_classification_and_category("target", "protected", 0, 1))
+        self.assertEqual(2, dataset.count_classification_and_category("target", "protected", 1, 0))
+        self.assertEqual(2, dataset.count_classification_and_category("target", "protected", 1, 1))
 
 
 if __name__ == "__main__":

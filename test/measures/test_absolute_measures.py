@@ -8,7 +8,6 @@ import group_fairness_metrics.absolute_measures as am
 import pandas as pd
 from data_structure.dataset import Dataset
 import numpy as np
-from numpy import nan
 
 
 class Test(unittest.TestCase):
@@ -112,7 +111,7 @@ class Test(unittest.TestCase):
                              'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
         dataset = Dataset(data)
-        self.assertEqual(nan, am.impact_ratio(dataset, "target", "protected"))
+        self.assertEqual(np.inf, am.impact_ratio(dataset, "target", "protected"))
 
 
     def test_odds_ratio(self):
@@ -131,7 +130,7 @@ class Test(unittest.TestCase):
                              'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
         dataset = Dataset(data)
-        self.assertEqual(nan, am.odds_ratio(dataset, "target", "protected"))
+        self.assertEqual(np.inf, am.odds_ratio(dataset, "target", "protected"))
 
         #===========================================================================
 
@@ -149,7 +148,7 @@ class Test(unittest.TestCase):
                              'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
         dataset = Dataset(data)
-        self.assertGreater(1, am.odds_ratio(dataset, "target", "protected"))
+        self.assertGreater(am.odds_ratio(dataset, "target", "protected"), 1)
 
 if __name__ == "__main__":
     unittest.main()
