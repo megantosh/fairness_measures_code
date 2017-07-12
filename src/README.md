@@ -65,7 +65,7 @@ python3 main.py /PATH/TO/YOUR/CSV/FILE
 
 ## Authors
 
-* **Meike Zehlike** - *Initial work* - [MilkaLichtblau](https://github.com/MilkaLichtblau)
+* **Meike Zehlike** - *Initiator* - [MilkaLichtblau](https://github.com/MilkaLichtblau)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
