@@ -35,7 +35,7 @@ def fisher_exact(dataset, target_col, protected_col):
     @param target_col:      name of the column that contains the classifier results
     @param protected_col:   name of the column that contains the protection status
 
-    @return: odds ratio and related pvalue
+    @return: odds ratio and related p-value
     """
     positive_protected = dataset.count_classification_and_category(target_col, protected_col, group=1, accepted=1)
     negative_protected = dataset.count_classification_and_category(target_col, protected_col, group=1, accepted=0)
