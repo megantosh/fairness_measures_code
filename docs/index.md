@@ -1,4 +1,6 @@
 <!-- http://www.tablesgenerator.com/markdown_tables# -->
+
+</br></br></br>
 With the unprecedented dependence on Machine Learning in our decision-making process and the increasing growth of discriminating models intentionally and unintentionally, this project is an attempt to evolve towards a fairness-aware ML.
 By collecting discriminatory training sets in various fields of compentence, we aim at providing a foundation to develop ML models that can spot biased results and eventually contribute towards finding a balanced outcome.
 We endeavour to set benchmarking techniques that contribute to algorithmic discrimination discovery with the help of available resources from around the web.
