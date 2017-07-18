@@ -1,4 +1,3 @@
-</br></br></br>
 # About the Program
 
 [view on Github](https://github.com/megantosh/fairness_measures/tree/master/src)

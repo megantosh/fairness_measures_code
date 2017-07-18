@@ -1,2 +1,1 @@
-</br></br></br>
 # SCHUFA
