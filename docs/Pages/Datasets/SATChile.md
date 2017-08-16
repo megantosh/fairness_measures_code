@@ -97,25 +97,20 @@
 
 ---
  <h2>Download Dataset</h2>
- [Download](#)
+ This Dataset is not available for public download. If you are interested in obtaining it,
+ [please get in touch with us](mailto:chato@acm.org?subject=PSU-SAT Scores Dataset.
 
  ---
 
 
 <h3>citation</h3>  
 ```
-Lichman, M. (2013). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
+__
 ```
 
 
  ```
  {
- @misc{Lichman:2013 ,
- author = "M. Lichman",
- year = "2013",
- title = "{UCI} Machine Learning Repository",
- url = "http://archive.ics.uci.edu/ml",
- institution = "University of California, Irvine, School of Information and Computer Sciences" }
- }
+ ___
  ```
  [Please refer to the Machine Learning Repository's for further citation requirements](https://archive.ics.uci.edu/ml/citation_policy.html)

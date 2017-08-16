@@ -23,7 +23,11 @@
 ---
 
 <h2>Dataset Statistics</h2>
-<b>Attributes:</b> age, workclass, fnlwgt, education, education-num, marital-status, occupation, relationship, race, sex, capital-gain, capital-loss, hours-per-week, native-country
+<b>Attributes:</b>
+- age
+- workclass
+- fnlwgt
+- education, education-num, marital-status, occupation, relationship, race, sex, capital-gain, capital-loss, hours-per-week, native-country
 
 ---
 
