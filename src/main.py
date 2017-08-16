@@ -5,7 +5,7 @@ Created on Jun 13, 2017
 '''
 
 import argparse
-from dataStructure.dataset import Dataset
+from data_structure.dataset import Dataset
 
 def main():
     # create the top-level parser
