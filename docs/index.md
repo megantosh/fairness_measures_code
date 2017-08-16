@@ -13,10 +13,11 @@ The datasets were collected from various sources and show an element of discrimi
 
 <h1><a name ="datasets"> Datasets </a></h1>
 
-| Dataset                          	| Quality Criterion 	| # Entries 	| Format |
-|----------------------------------	|-------------------	|-----------	|--------|
+| Dataset                          	                            | Quality Criterion 	| # Entries 	| Format |
+|----------------------------------	                            |-------------------	|-----------	|--------|
 | [COMPAS Recidivism Risk](Pages/Datasets/Compas.md)           	| recidivism        	| 18K    	    | csv |
 | [Statlog - German Credit (SCHUFA](Pages/Datasets/Schufa.md) 	| credit rating     	| 1k        	| csv |
 | [SAT](Pages/Datasets/SAT.md)                              	| test score        	| 1,600k 	    | pdf |
-| [SAT-Chile](Pages/Datasets/SATChile.md)
+| [SAT-Chile](Pages/Datasets/SATChile.md)                       | test score            |               | csv |
+| [Adult Census ](Pages/Datasets/censusincome.md)               | income                | 48842         | csv |
 
