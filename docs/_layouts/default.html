@@ -28,9 +28,9 @@
 
         {% if site.show_downloads %}
           <ul>
-             {% if site.github.is_project_page %}
-            <p><a href="{{ site.github.repository_url }}"><STRONG>View the Project on GitHub</STRONG> <small>{{ site.github.repository_name }}</small></a><p>
-        {% endif %}
+             <!--{% if site.github.is_project_page %}-->
+            <!--<p><a href="{{ site.github.repository_url }}"><STRONG>View the Project on GitHub</STRONG> <small>{{ site.github.repository_name }}</small></a><p>-->
+        <!--{% endif %}-->
 
 <!--            <li><a href="{{ site.github.zip_url }}"> <strong>Download</strong> Datasets</a></li>
             <li><a href="{{ site.github.tar_url }}"> <strong>Upload</strong> Datasets</a></li>
@@ -41,9 +41,11 @@
           </ul>
 
         <li><a href="http://www.fairness-measures.org">Home</a></li>
-              <li><a href="http://fairness-measures.org/#datasets">Datasets</a></li>
-              <li><a href="{{ site.github.baseurl }}/Pages/instructions.html">How to use</a></li>
-              <li><a href="{{ site.github.baseurl }}/Pages/Code.html">Code</a></li>
+        <li><a href="http://fairness-measures.org/#datasets">Datasets</a></li>
+        <li><a href="http://fairness-measures.org/#measures">Measures</a></li>
+
+        <li><a href="{{ site.github.baseurl }}/Pages/instructions.html">Code (How to use)</a></li>
+              <!--<li><a href="{{ site.github.baseurl }}/Pages/Code.html">Code</a></li>-->
               <li><a href="{{ site.github.baseurl }}/Pages/About.html">About</a></li>
 
         <!--          <ul>

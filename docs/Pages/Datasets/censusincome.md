@@ -27,7 +27,8 @@
 
 ---
 
- <h2>[Download Dataset](https://archive.ics.uci.edu/ml/machine-learning-databases/adult/)</h2>
+ <h2>Download Dataset</h2>
+ [Download](https://archive.ics.uci.edu/ml/machine-learning-databases/adult/)
 
  ---
 

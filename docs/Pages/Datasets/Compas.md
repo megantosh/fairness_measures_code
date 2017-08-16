@@ -28,7 +28,8 @@ Dataset Statistics
 
 ---
 
- <h2>[Download Dataset](https://github.com/propublica/compas-analysis/Compas.csv)</h2>
+ <h2>Download Dataset</h2>
+[Download](https://github.com/propublica/compas-analysis/Compas.csv)
 
  ---
 
