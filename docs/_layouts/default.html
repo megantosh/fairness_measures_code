@@ -22,9 +22,9 @@
     <header>
         <h1><a href="{{ site.github.url }}">Fairness Measures</a></h1>
         <p>{{ site.description | default: site.github.project_tagline }}</p>
-        {% if site.github.is_user_page %}
-        <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
-        {% endif %}
+        <!--{% if site.github.is_user_page %}-->
+        <!--<p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>-->
+        <!--{% endif %}-->
 
         <!--{% if site.show_downloads %}-->
         <!--<ul>-->
@@ -47,8 +47,8 @@
             <li><a href="http://fairness-measures.org/Pages/Measures">Measures</a></li>
             <li><a href="{{ site.github.baseurl }}/Pages/instructions.html">Code (How to use)</a></li>
             <li><a href="{{ site.github.baseurl }}/Pages/About.html">About</a></li>
-            {% endif %}
         </ul>
+        <!--{% endif %}-->
 
     </header>
     <section>
@@ -80,6 +80,7 @@
         </p>
     </footer>
 </div>
+
 <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
 
 
@@ -101,5 +102,6 @@
     ga('send', 'pageview');
 </script>
 {% endif %}
+
 </body>
 </html> 
