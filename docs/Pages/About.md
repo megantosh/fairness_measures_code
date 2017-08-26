@@ -1,6 +1,6 @@
 # About
 
-This Project is maintained by Meike Zehlike, Carlos Castillo and Mohamed Megahed
+This Project is maintained by Meike Zehlike, Carlos Castillo, Francesco Bonchi, Mohamed Megahed and Sara Hajian 
 
 # Citation
 If you decide to use one of our datasets in your work, please consider using the following BibTeX citation:
