@@ -188,8 +188,8 @@ footer { width: 270px; float: left; position: fixed; bottom: 50px; -webkit-font-
   header { padding-right: 320px; }
 
     section {
-        border: 188px solid #e5e5e5;
-        border-width: 188px 0;
+        border: 1px solid #e5e5e5;
+        border-width: 1px 0;
         padding: 20px 0;
         margin: 0 0 20px;
     }
