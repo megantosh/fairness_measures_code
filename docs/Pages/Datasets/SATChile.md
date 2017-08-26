@@ -29,7 +29,7 @@
 
 <b>Year:</b> 2017
 
-<b>Source:</b> [Prueba Selección Universitaria - Chilean University Test | Departamento de Evaluación, Medición y Registro Educacional (DEMRE)](http://psu.demre.cl) - extracted from the census bureau database [found here](http://www.census.gov/ftp/pub/DES/www/welcome.html)
+<b>Source:</b> [Prueba Selección Universitaria - Chilean University Test | Departamento de Evaluación, Medición y Registro Educacional (DEMRE)](http://psu.demre.cl)
 
 <b>Description:</b> Admissions Data of University of Chile - Data provided between 2004 - 2016. 2017 Data limited
 
