@@ -17,6 +17,8 @@ You can test any of the provided datasets or your own for bias using the followi
 
 - Normalized Discounted Cummulative Gain (nDCG)
 
+- Group Fairness Metrics
+
 
 
 We continuously define and/or implement methods for benchmarking algorithmic bias using current measures as well as our own.
