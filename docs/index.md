@@ -11,7 +11,7 @@ While part of our project is to avail data sets showing discriminatory patterns,
 By doing so, we target data collected from various areas of interest (e.g. in finance, law, HR).
 If you believe your data can help this cause, please [contribute](#) with a dataset or [get in touch](mailto:meike.zehlike@tu-berlin.de) with us if you can be of any enrichment to the project. Also feel free to share the work!
 
-<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//fairness-measures.org">Share on Facebook</a> | <a href="https://twitter.com/home?status=Discrimination%20Discovery%20can%20be%20quantified%20-%20http%3A//fairness-measures.org">Share on Twitter</a> | <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//fairness-measures.org&title=Fairness%20Measures%20Project&summary=&source=">Share on LinkedIn</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//fairness-measures.org"  target="_blank" >Share on Facebook</a> | <a href="https://twitter.com/home?status=Discrimination%20Discovery%20can%20be%20quantified%20-%20http%3A//fairness-measures.org"  target="_blank">Share on Twitter</a> | <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//fairness-measures.org&title=Fairness%20Measures%20Project&summary=&source="  target="_blank">Share on LinkedIn</a>
 
 # About The Data
 

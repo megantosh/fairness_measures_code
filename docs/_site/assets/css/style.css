@@ -160,7 +160,7 @@ a:hover small { color: #777; }
 
 .wrapper { width: 860px; margin: 0 auto; }
 
-blockquote { border-left: 1px solid #e5e5e5; margin: 0; padding: 0 0 0 20px; font-style: italic; }
+/*blockquote { border-left: 1px solid #e5e5e5; margin: 0; padding: 0 0 0 20px; font-style: italic; }*/
 
 code, pre { font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace; color: #333; font-size: 12px; }
 
@@ -168,12 +168,13 @@ pre { padding: 8px 15px; background: #f8f8f8; border-radius: 5px; border: 1px so
 
 table { width: 100%; border-collapse: collapse; }
 
-th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #393939; }
+/*this one!*/
+/*th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #393939; }*/
 /*th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #e5e5e5; }*/
 
-dt { color: #444; font-weight: 700; }
+/*dt { color: #444; font-weight: 700; }*/
 
-th { color: #444; }
+/*th { color: #444; }*/
 tr:nth-child(even) {background-color: #0086B3;}
 img { max-width: 100%; }
 
