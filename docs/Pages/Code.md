@@ -10,4 +10,5 @@
 # How to run
 
 # License
+make sure access rights are correct
 -->
