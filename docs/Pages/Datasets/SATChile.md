@@ -8,15 +8,30 @@
 
 <b>Format:</b> csv
 
-<b>Number of Entries:</b> ___
+<b>Number of Entries:</b> 2983093
 
-<b>Number of Attributes:</b>  ___
+|      |        |
+|------|--------|
+| 2004 | 159123 |
+| 2005 | 176680 |
+| 2006 | 182761 |
+| 2007 | 242153 |
+| 2008 | 240850 |
+| 2009 | 277420 |
+| 2010 | 285322 |
+| 2011 | 289244 |
+| 2012 | 280049 |
+| 2013 | 280506 |
+| 2014 | 278736 |
+| 2015 | 290249 |
+
+<b>Number of Attributes:</b>  166
 
 <b>Year:</b> 2017
 
-<b>Source:</b> [Prueba Selección Universitaria - Chilean University Test](#) - extracted from the census bureau database [found here](http://www.census.gov/ftp/pub/DES/www/welcome.html)
+<b>Source:</b> [Prueba Selección Universitaria - Chilean University Test | Departamento de Evaluación, Medición y Registro Educacional (DEMRE)](http://psu.demre.cl) - extracted from the census bureau database [found here](http://www.census.gov/ftp/pub/DES/www/welcome.html)
 
-<b>Description:</b> _____Data provided between 2004 - 2016
+<b>Description:</b> Admissions Data of University of Chile - Data provided between 2004 - 2016. 2017 Data limited
 
 ---
 
@@ -93,16 +108,16 @@
 - Admission Academic Year (Nomination)
 - general situation of the applicant
 
-...(see Table!)
+...(further Details listed in Dataset)
 
 ---
- <h2>Download Dataset</h2>
+ <h2>Obtain Dataset</h2>
  This Dataset is not available for public download. If you are interested in obtaining it,
  [please get in touch with us](mailto:chato@acm.org?subject=PSU-SAT Scores Dataset.
 
  ---
 
-
+<!--
 <h3>citation</h3>  
 ```
 __
@@ -114,3 +129,4 @@ __
  ___
  ```
  [Please refer to the Machine Learning Repository's for further citation requirements](https://archive.ics.uci.edu/ml/citation_policy.html)
+-->

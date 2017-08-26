@@ -8,13 +8,13 @@
 
 <b>Format:</b> csv
 
-<b>Number of Entries:</b> __
+<b>Number of Entries:</b> 1,672,395
 
-<b>Number of Attributes:</b> __
+<b>Number of Attributes:</b> 3
 
-<b>Year:</b> __
+<b>Year:</b> 2014
 
-<b>Source:</b> 
+<b>Source:</b> [CollegeBoard](https://research.collegeboard.org/programs/sat/data/archived/cb-seniors-2014)
 
 <b>Description:</b> ___
 
