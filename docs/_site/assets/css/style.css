@@ -188,10 +188,10 @@ footer { width: 270px; float: left; position: fixed; bottom: 50px; -webkit-font-
   header { padding-right: 320px; }
 
     section {
-        border: 1px solid #e5e5e5;
-        border-width: 1px 0;
-        padding: 20px 0;
-        margin: 0 0 20px;
+        /*border: 1px solid #e5e5e5;*/
+        /*border-width: 1px 0;*/
+        /*padding: 20px 0;*/
+        /*margin: 0 0 20px;*/
     }
   header a small { display: inline; }
 
@@ -215,8 +215,8 @@ footer { width: 270px; float: left; position: fixed; bottom: 50px; -webkit-font-
         width: 99%;
     }
 
-    header li, header ul li + li + li {
-        width: 33%;
-    }
+    /*header li, header ul li + li + li {*/
+    /*width: 33%;*/
+    /*}*/
 }
 @media print { body { padding: 0.4in; font-size: 12pt; color: #444; } }
