@@ -1,1 +1,1 @@
-Please upload your dataset here along with model documentation and contact data. Once reviewed, we will get in touch with you for publication options.
+Please upload your dataset here as .zip or .tar using the <b>upload files</b> button above along with model documentation and contact data. Once reviewed, we will get in touch with you for publication options.
