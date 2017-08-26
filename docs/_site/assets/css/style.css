@@ -164,7 +164,7 @@ code, pre { font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Termi
 
 /*pre { padding: 8px 15px; background: #f8f8f8; border-radius: 5px; border: 1px solid #e5e5e5; overflow-x: auto; }*/
 
-table { width: 100%; border-collapse: collapse; }
+/*table { width: 100%; border-collapse: collapse; }*/
 
 /*this one!*/
 /*th, td { text-align: left; padding: 5px 10px; border-bottom: 1px solid #393939; }*/
@@ -182,7 +182,7 @@ img { max-width: 100%; }
 
 small { font-size: 11px; }
 
-hr { border: 0; background: #e5e5e5; height: 1px; margin: 0 0 20px; }
+/*hr { border: 0; background: #e5e5e5; height: 1px; margin: 0 0 20px; }*/
 
 footer { width: 270px; float: left; position: fixed; bottom: 50px; -webkit-font-smoothing: subpixel-antialiased; }
 
