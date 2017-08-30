@@ -111,7 +111,7 @@ header {
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
-header ul {
+/*header ul {
   list-style:none;
   height:40px;
   padding:0;
@@ -119,7 +119,7 @@ header ul {
   border-radius:5px;
   border:1px solid #e0e0e0;
   width:270px;
-}
+}*/
 
 header li {
   width:89px;
@@ -136,7 +136,7 @@ header li:last-child a {
   border-radius:0 5px 5px 0;
 }
 
-header ul a {
+/*header ul a {
   line-height:1;
   font-size:11px;
   color:#999;
@@ -144,7 +144,7 @@ header ul a {
   text-align:center;
   padding-top:6px;
   height:34px;
-}
+}*/
 
 header ul a:hover {
   color:#999;
@@ -159,10 +159,10 @@ strong {
   font-weight:500;
 }
 
-header ul li + li + li {
+/*header ul li + li + li {
   border-right:none;
   width:89px;
-}
+}*/
 
 header ul a strong {
   font-size:14px;

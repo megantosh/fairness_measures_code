@@ -30,13 +30,31 @@
 ---
 
 <h2>Dataset Statistics</h2>
-<b>Attributes:</b> Status of existing checking account, Duration in month, Credit history, Credit Purpose, Credit amount, Savings account/bonds, Present employment since, Personal status and sex, Other debtors / guarantors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits at this bank, Job, Number of people being liable to provide maintenance for, foreign worker
+<b>Attributes:</b>
+- Status of existing checking account
+- Duration in month
+- Credit history
+- Credit Purpose
+- Credit amount
+- Savings account/bonds
+- Present employment since
+- Personal status and sex
+- Other debtors / guarantors
+- Present residence since
+- Property
+- Age in years
+- Other installment plans
+- Housing
+- Number of existing credits at this bank
+- Job
+- Number of people being liable to provide maintenance for
+- foreign worker
 
 ---
 
  <h2>Download Dataset</h2>
  [Download](https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/)
-
+Warning: benchmarking used not on raw data set
  ---
 
 

@@ -24,7 +24,35 @@
 
 Dataset Statistics
 
-<b>Attributes:</b> Person_ID, AssessmentID, Case_ID, Agency_Text, LastName, FirstName, MiddleName, Sex_Code_Text, Ethnic_Code_Text, DateOfBirth, ScaleSet_ID, ScaleSet, AssessmentReason, Language, LegalStatus, CustodyStatus, MaritalStatus, Screening_Date, RecSupervisionLevel, RecSupervisionLevelText, Scale_ID, DisplayText, RawScore, DecileScore, ScoreText, AssessmentType, IsCompleted, IsDeleted
+<b>Attributes:</b>
+- Person_ID
+- AssessmentID
+- Case_ID
+- Agency_Text
+- LastName
+- FirstName
+- MiddleName
+- Sex_Code_Text
+- Ethnic_Code_Text
+- DateOfBirth
+- ScaleSet_ID
+- ScaleSet
+- AssessmentReason
+- Language
+- LegalStatus
+- CustodyStatus
+- MaritalStatus
+- Screening_Date
+- RecSupervisionLevel
+- RecSupervisionLevelText
+- Scale_ID
+- DisplayText
+- RawScore
+- DecileScore
+- ScoreText
+- AssessmentType
+- IsCompleted
+- IsDeleted
 
 ---
 
