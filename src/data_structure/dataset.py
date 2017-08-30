@@ -23,11 +23,17 @@ class Dataset(object):
 
     @property
     def protected_cols(self):
+        """
+        names of the columns that contain protected attributes
+        """
         return self.__protected_cols
 
 
     @property
     def target_cols(self):
+        """
+        names of the columns that contain the features to be analyzed by discrimination measures
+        """
         return self.__target_cols
 
 
