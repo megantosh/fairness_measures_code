@@ -113,7 +113,7 @@
 ---
  <h2>Obtain Dataset</h2>
  This Dataset is not available for public download. If you are interested in obtaining it,
- [please get in touch with us](mailto:chato@acm.org?subject=PSU-SAT Scores Dataset).
+ [please get in touch with the dataset provider](http://psu.demre.cl/mesa-de-ayuda/).
 
  ---
 
