@@ -1,10 +1,11 @@
 # FAIRNESS AND DISCRIMINATION MEASURES
 
-One Paragraph of project description goes here
+This project quantifies the fairness distribution of rankings in a dataset using simple statistical functions, e.g. Mean Average, as well as more advanced such as group fairness rankings. Fairness is measured for example if there is an equal distribution of protected and non-protected attributes in a dataset. Given a dataset with already definded protected attributes (e.g. sex, race, age) as an input, the output is the score of a function measuring the respective statistical key figure (e.g. Mean Value, Kendall's Tau) with respect to the protected elements. A more details are available in the respective functions, please refer to the code comments.
+
 
 ## Getting Started
-
-...
+1. Packages accept datasets that already have a calculated score that indicates a ranking.
+2. to use a dataset, the first column should provide the attribute names. Protected attributes require the prefix ``protected``. The column with the calculated score requires a ``target``. For example, if you need to measure fairness rankings of a dataset with the columns ``sex`` and ``credit_score``, please rename the first columns e.g. to ``protected_sex`` and ``target_Score``
 
 ### Prerequisites
 
