@@ -1,5 +1,5 @@
 # Fairness_Measures
 
-Code Branch - Only code changes appear here.
+Dataset Upload Branch - Only uploaded datasets appear here temporarily untill approved.
 
-Please refer to the Readme in the [``src``](https://github.com/megantosh/fairness_measures/tree/Up/src) directory
+Please refer to the Readme in the [``src``](https://github.com/megantosh/fairness_measures/tree/Upload/Drop_Box) directory
