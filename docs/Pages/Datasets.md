@@ -1,35 +1,10 @@
-<b>Data Types:</b> Multivariate
+<h1><a name ="datasets"> Datasets </a></h1>
 
-<b>Default Task:</b> Classification
+| Dataset                          	                            | Quality Criterion 	| # Entries 	| Format |
+|----------------------------------	                            |-------------------	|-----------	|--------|
+| [COMPAS Recidivism Risk](Pages/Datasets/Compas.md)           	| recidivism        	| 18K    	    | csv |
+| [Statlog (German Credit -SCHUFA)](Pages/Datasets/Schufa.md) 	| credit rating     	| 1k        	| csv |
+| [SAT](Pages/Datasets/SAT.md)                              	| test score        	| 1,6 k 	    | pdf |
+| [SAT-Chile](Pages/Datasets/SATChile.md)                       | test score            | 2,9 M         | csv |
+| [Adult Census ](Pages/Datasets/censusincome.md)               | income                | 48,8 k        | csv |
 
-<b>Attribute Types:</b> Categorical, Integer, Real
-
-<b>Format:</b> csv
-
-<b>Number of Entries:</b> 4177
-
-<b>Number of Attributes:</b> 8
-
-<b>Year:</b> 1995
-
-<b>Source:</b> [SNAP](https://snap.stanford.edu/data/)
-
-<b>Description:</b> lorem ipsum dolor
-
----
-
-Dataset Statistics
-
----
-
- [<h2>Download Dataset</h2>](www.helloworld.com)
-
- ---
-
-
- <h3> citation </h3>
-
- ```
- {
- }
- ```

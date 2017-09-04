@@ -11,7 +11,8 @@ import sys
 def main():
     # check python version
     if sys.version_info[1] < 3.5:
-        raise Exception("Please use Python 3.5")
+        raise Exception("Please use Python 3.5 or above to run")
+
     # create the top-level parser
     parser = argparse.ArgumentParser(prog='fairness benchmarks',
                                      description='performs various discrimination group_fairness_metrics on a given dataset',
