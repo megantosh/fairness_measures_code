@@ -40,14 +40,14 @@ until finished
 -->
 
 ## Running first example
-* go to src/
+* go to ``src/``
 * call main.py to perform t-test on small example dataset
 ```
 python3 main.py
 ```
-* call main.py with your dataset file to perform t-test on your data
+* call ``main.py`` with your dataset file to perform t-test on your data
 ```
-python3 main.py /PATH/TO/YOUR/CSV/FILE
+python3 main.py  </PATH/TO/YOUR/CSV/FILE/datasetname.csv>
 ```
 
 ## Running the tests
