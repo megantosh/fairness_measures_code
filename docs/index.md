@@ -13,9 +13,6 @@ If you believe your data can help this cause, please [contribute with a dataset]
 
 <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//fairness-measures.org"  target="_blank" >Share on Facebook</a> | <a href="https://twitter.com/home?status=Discrimination%20Discovery%20can%20be%20quantified%20-%20http%3A//fairness-measures.org"  target="_blank">Share on Twitter</a> | <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//fairness-measures.org&title=Fairness%20Measures%20Project&summary=&source="  target="_blank">Share on LinkedIn</a>
 
-# About The Data
-
-The datasets were collected from various sources and show an element of discrimination with respect to certain minority individuals and groups. Each Dataset includes information about the respective discriminatory profile. For data protection reasons, some of the collected datasets are available only upon requests.
 
 
 <!-- Ideas to complete Text with:
