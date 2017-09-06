@@ -1,3 +1,3 @@
 # Fairness_Measures
 
-http:// www.fairness-measures.org
+http://www.fairness-measures.org
