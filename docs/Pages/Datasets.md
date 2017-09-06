@@ -7,9 +7,9 @@ The datasets were collected from various sources and show an element of discrimi
 
 | Dataset                          	                            | Quality Criterion 	| # Entries 	| Format |
 |----------------------------------	                            |-------------------	|-----------	|--------|
-| [COMPAS Recidivism Risk](/Datasets/Compas.html)           	| recidivism        	| 18K    	    | csv |
-| [Statlog (German Credit -SCHUFA)](/Datasets/Schufa.html) 	| credit rating     	| 1k        	| csv |
-| [SAT](Pages/Datasets/SAT.html)                              	| test score        	| 1,6 k 	    | pdf |
-| [SAT-Chile](/Datasets/SATChile.html)                       | test score            | 2,9 M         | csv |
-| [Adult Census ](/Datasets/censusincome.html)               | income                | 48,8 k        | csv |
+| [COMPAS Recidivism Risk](Compas.html)           	| recidivism        	| 18K    	    | csv |
+| [Statlog (German Credit -SCHUFA)](Schufa.html) 	| credit rating     	| 1k        	| csv |
+| [SAT](SAT.html)                              	| test score        	| 1,6 k 	    | pdf |
+| [SAT-Chile](SATChile.html)                       | test score            | 2,9 M         | csv |
+| [Adult Census ](censusincome.html)               | income                | 48,8 k        | csv |
 
