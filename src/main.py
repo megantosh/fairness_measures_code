@@ -7,6 +7,7 @@ Created on Jun 13, 2017
 import argparse
 from data_structure.dataset import Dataset
 import sys
+import csv
 
 def main():
     # check python version
@@ -20,6 +21,9 @@ def main():
     parser.add_argument("-f", "--file", nargs='*', help="provide a dataset as csv-file to the algorithms")
     subparsers = parser.add_subparsers(help='sub-command help')
 
+    #run demo
+    parser.add_argument("-d", "--demo", nargs="1")
+
     # create the parser for the "file" command
     parser_file = subparsers.add_parser('file', help='provide a csv file containing a dataset')
     parser_file.add_argument(dest='file_to_read')
@@ -30,11 +34,19 @@ def main():
     if (args.file == None):
         raise ValueError("Please provide a csv-file")
 
+    # with open('demo_GermanCredit_sex.csv','rt', encoding='UTF8') as filetoread:
+    #     reader = csv.reader(filetoread)
+    #     for row in reader:
+    #         print(row)
+    #
     dataset = Dataset(args.file[0])
 
 
 '''demo cmd on schufa'''
-
+""" - encoding
+    - delimiter , ; ...
+    - read mode (string, binary
+"""
 
 if __name__ == '__main__':
     main()

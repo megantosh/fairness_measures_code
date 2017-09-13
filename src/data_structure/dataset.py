@@ -42,11 +42,11 @@ class Dataset(object):
         Constructor
         '''
         if isinstance(data, str):
-            # expect data to be a filename
+            # expect data to be a filename, separator auto detected, encoding?
             self.__data = pd.read_csv(data, header=0)
         elif isinstance(data, pd.DataFrame):
             self.__data = data
-
+#
         self.__protected_cols = [col for col in self.data.columns.values if col.startswith('protected')]
         self.__target_cols = [col for col in self.data.columns if col.startswith('target')]
 
