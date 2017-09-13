@@ -30,7 +30,7 @@ def main():
     if (args.file == None):
         raise ValueError("Please provide a csv-file")
 
-    dataset = Dataset(args.file)
+    dataset = Dataset(args.file[0])
 
 
 '''demo cmd on schufa'''
