@@ -13,6 +13,13 @@ Given a dataset with already definded protected attributes (e.g. sex, race, age)
 Protected attributes require the prefix ``protected``. The column to be examined requires the prefix ``target``.
 For example, if you need to measure fairness rankings of a dataset with the columns ``sex`` and ``credit_score``,
 please rename the first columns e.g. to ``protected_sex`` and ``target_credit_Score``
+3. protected candidates' features index ranges from ``0``, to the <i> lowest protected group index </i>, such that in the case of having sex as a protected feature,
+we use ``0`` for women if <i>female</i> is the protected group and ``1`` for men provided they are the only unprotected group. In a different use case,
+where age is the protected attribute in ascending order, we can use:
+ - ``3`` for people up to 18 years of age, with ``3`` being the <i>lowest protected group index</i>
+ - ``2`` for people between 19 to 35 year,
+ - ``1`` for people between 36 to 64 years,
+ - ``0`` for people above 65 years, with these being as the group protected most, i.e. with a <i> highest protected group index </i> (always ``0``)
 
 ### Prerequisites
 
