@@ -42,7 +42,7 @@ class Dataset(object):
         Constructor
         '''
         if isinstance(data, str):
-            # expect data to be a filename
+            # expect data to be a filename, engine=python enables auto-detection of separator
             self.__data = pd.read_csv(data, header=0, sep=None, engine='python')
         elif isinstance(data, pd.DataFrame):
             self.__data = data
