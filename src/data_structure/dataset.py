@@ -43,12 +43,12 @@ class Dataset(object):
         '''
         if isinstance(data, str):
             # expect data to be a filename
-            self.__data = pd.read_csv(data, header=0)
+            self.__data = pd.read_csv(data, header=0, sep=None, engine='python')
         elif isinstance(data, pd.DataFrame):
             self.__data = data
 
-        self.__protected_cols = [col for col in self.data.columns.values if col.startswith('protected')]
-        self.__target_cols = [col for col in self.data.columns if col.startswith('target')]
+        self.__protected_cols = [col for col in self.__data.columns if col.startswith('protected')]
+        self.__target_cols = [col for col in self.__data.columns if col.startswith('target')]
 
         # check if dataset is well-formed
         if not self.__protected_cols:
