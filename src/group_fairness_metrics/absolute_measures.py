@@ -1,6 +1,4 @@
 '''
-Created on Jun 13, 2017
-
 @author: meike.zehlike
 '''
 import numpy as np
@@ -26,7 +24,7 @@ def mean_difference(dataset, target_column, protected_column, non_protected=0):
     categories from protected_column as indices. Note that the non-protected category is excluded as
     it would contain only zeros anyway. The cells contain the values of the mean differences
     between the non-protected group and the particular protected one for that particular target variables.
-    If the difference is positive, the mean of the non-protected group was greater than the mean of the
+    If the difference greater zero, the mean of the non-protected group was greater than the mean of the
     protected one, otherwise smaller.
     """
 
@@ -80,13 +78,14 @@ def normalized_difference(dataset, target_col, protected_col):
     @param target_col: name of the column that contains the classifier results
     """
 
-    unique, counts = np.unique(dataset.data[protected_col], return_counts=True)
+    unique_prot, counts_prot = np.unique(dataset.data[protected_col], return_counts=True)
+    unique_targ, counts = np.unique(dataset.data[target_col], return_counts=True)
 
-    if len(unique) > 2:
-        raise ValueError("This function is for binary problems only: There should be only one favored\
-                          group and one protected group.")
+    if len(unique_prot) > 2 or len(unique_targ) > 2:
+        print("This function is only applicable for binary problems. See function docs for details.")
+        return np.nan
 
-    protected_group_counts = dict(zip(unique, counts))
+    protected_group_counts = dict(zip(unique_prot, counts_prot))
     conditional_probs = dataset.conditional_prob_for_group_category(target_col, protected_col, 1)
 
     counts_pos = (dataset.data[target_col] == 1).sum()

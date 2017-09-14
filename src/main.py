@@ -6,8 +6,8 @@ Created on Jun 13, 2017
 
 import argparse
 from data_structure.dataset import Dataset
+from group_fairness_metrics.absolute_measures import *
 import sys
-import csv
 
 def main():
     # check python version
@@ -21,32 +21,35 @@ def main():
     parser.add_argument("-f", "--file", nargs='*', help="provide a dataset as csv-file to the algorithms")
     subparsers = parser.add_subparsers(help='sub-command help')
 
-    #run demo
-    parser.add_argument("-d", "--demo", nargs="1")
-
     # create the parser for the "file" command
     parser_file = subparsers.add_parser('file', help='provide a csv file containing a dataset')
     parser_file.add_argument(dest='file_to_read')
 
+    # run demo
+    parser.add_argument("-d", "--demo", dest='demo', action='store_true', help="run all algorithms with an example dataset")
     args = parser.parse_args()
 
+    if (args.demo == True):
+        run_demo('demo_GermanCredit_sex.csv')
     # read file into dataframe
     if (args.file == None):
         raise ValueError("Please provide a csv-file")
 
-    # with open('demo_GermanCredit_sex.csv','rt', encoding='UTF8') as filetoread:
-    #     reader = csv.reader(filetoread)
-    #     for row in reader:
-    #         print(row)
-    #
     dataset = Dataset(args.file[0])
+    # to be continued
 
 
-'''demo cmd on schufa'''
-""" - encoding
-    - delimiter , ; ...
-    - read mode (string, binary
-"""
+def run_demo(filename):
+    dataset = Dataset(filename)
+    print('=========== mean differences ==============')
+    print(mean_difference(dataset, 'target_score', 'protected_sex').T)
+
+    print('\n=========== normalized differences ============')
+    print(normalized_difference(dataset, 'target_loan_approved', 'protected_sex'))
+
+    print('\n=========== impact ratio ============')
+    print(impact_ratio(dataset, 'target_loan_approved', 'protected_sex'))
+
 
 if __name__ == '__main__':
     main()

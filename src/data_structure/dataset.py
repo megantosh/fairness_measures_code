@@ -79,7 +79,7 @@ class Dataset(object):
 
         @param target_col:      name of the column in data that contains the classification results
         @param protected_col:   name of the column in data that contains the protection status
-        @param group:       defines which protection status should be counted
+        @param group:           defines which protection status should be counted
         @param accepted:        defines which classification result should be counted
 
         @return: the number of occurrences of the given protection/classification combination
