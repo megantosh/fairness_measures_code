@@ -49,9 +49,6 @@ def run_demo(filename):
     print('=========== difference of means test =============')
     print(t_test_ind(dataset, 'target_score', 'protected_sex'))
 
-    print('\n=========== difference in proportions ==============')
-    print(mean_difference(dataset, 'target_score', 'protected_sex').T)
-
     print('\n=========== mean differences ==============')
     print(mean_difference(dataset, 'target_score', 'protected_sex').T)
 
