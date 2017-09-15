@@ -8,6 +8,7 @@ import argparse
 from data_structure.dataset import Dataset
 from group_fairness_metrics.absolute_measures import *
 import sys
+from group_fairness_metrics.statistical_tests import *
 
 def main():
     # check python version
@@ -30,7 +31,9 @@ def main():
     args = parser.parse_args()
 
     if (args.demo == True):
-        run_demo('demo_GermanCredit_sex.csv')
+        run_demo('demo.csv')
+        return
+
     # read file into dataframe
     if (args.file == None):
         raise ValueError("Please provide a csv-file")
@@ -40,8 +43,16 @@ def main():
 
 
 def run_demo(filename):
+    print('Running all measures with an example dataset and prints results to stdout. Please note, that this dataset was created artificially.')
     dataset = Dataset(filename)
-    print('=========== mean differences ==============')
+
+    print('=========== difference of means test =============')
+    print(t_test_ind(dataset, 'target_score', 'protected_sex'))
+
+    print('\n=========== difference in proportions ==============')
+    print(mean_difference(dataset, 'target_score', 'protected_sex').T)
+
+    print('\n=========== mean differences ==============')
     print(mean_difference(dataset, 'target_score', 'protected_sex').T)
 
     print('\n=========== normalized differences ============')
@@ -49,6 +60,12 @@ def run_demo(filename):
 
     print('\n=========== impact ratio ============')
     print(impact_ratio(dataset, 'target_loan_approved', 'protected_sex'))
+
+    print('\n=========== odds ratio ============')
+    print(fisher_exact(dataset, 'target_loan_approved', 'protected_sex'))
+
+
+
 
 
 if __name__ == '__main__':

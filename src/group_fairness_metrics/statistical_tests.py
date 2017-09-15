@@ -7,7 +7,7 @@ from scipy.stats import stats
 from scipy.stats.stats import ttest_ind
 
 
-def t_test_ind(dataset, target_col, protected_col, equal_var=False):
+def t_test_ind(dataset, target_col, protected_col, equal_var=0):
     """
     performs the independent two-sample t-Test, or Welch's test if equality of the variances is not
     given
@@ -15,8 +15,8 @@ def t_test_ind(dataset, target_col, protected_col, equal_var=False):
     @param dataset:
     @param target_col:      name of the column that contains the classifier results
     @param protected_col:   name of the column that contains the protection status
-    @param equal_var:       f True (default), perform a standard independent 2 sample test that
-                            assumes equal population variances. If False, perform Welch’s t-test,
+    @param equal_var:       if True, perform a standard independent 2 sample test that
+                            assumes equal population variances and sample size. If False (default), perform Welch’s t-test,
                             which does not assume equal population variance
 
     @return: calculated t-statistic and two-tailed p-value
@@ -24,7 +24,7 @@ def t_test_ind(dataset, target_col, protected_col, equal_var=False):
     """
     protected_targets = dataset.get_all_targets_of_group(target_col, protected_col, 1)
     nonprotected_targets = dataset.get_all_targets_of_group(target_col, protected_col, 0)
-    return ttest_ind(protected_targets, nonprotected_targets)
+    return ttest_ind(protected_targets, nonprotected_targets, equal_var)
 
 
 def fisher_exact(dataset, target_col, protected_col):
