@@ -64,7 +64,7 @@ def normalized_difference(dataset, target_col, protected_col):
     member and the probability of being accepted given being a protected group member. This difference
     is normalized by the ratio of all accepted candidates by all favored candidates.
     Non-Discrimination is indicated when no difference in these probabilities exist. Maximum
-    discrimination is indicated when the result is 1, i.e. the probability of being accepted as a
+    discrimination is indicated when the result is 1 (or -1 respectively), i.e. the probability of being accepted as a
     favored is 1 whereas it is 0 for a protected group member.
 
     Only works for the binary case -> one protected group, one non-protected group, classification
@@ -76,6 +76,10 @@ def normalized_difference(dataset, target_col, protected_col):
 
     @param protected_col: name of the column that contains the protection status
     @param target_col: name of the column that contains the classifier results
+
+    @return 0     if the probability of being accepted is equal for all groups
+            > 0   if the probability of being accepted is higher for the non-protected group
+            < 0   if the probability of being accepted is higher for the protected group
     """
 
     unique_prot, counts_prot = np.unique(dataset.data[protected_col], return_counts=True)
@@ -109,7 +113,7 @@ def normalized_difference(dataset, target_col, protected_col):
 def impact_ratio(dataset, target_col, protected_col):
     """
     calculates the ratio of positive outcomes for the protected group over the general group. Non-
-    discrimination is indicated when the ratio is 1
+    discrimination is indicated when the ratio is close to 1
 
     @param dataset:
     @param target_col:      name of the column that contains the classifier results
