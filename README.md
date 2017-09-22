@@ -6,7 +6,7 @@ For background information on the project, see http://fairness-measures.org/
 
 For the measures that are implemented, see http://fairness-measures.org/Pages/Measures
 
-## How does this work?
+## Expected input and output
 
 These programs take as input a dataset in which each row represents a person.
 
@@ -18,7 +18,7 @@ The output is a measure of fairness. Fairness can be measured in many ways, for 
 
 The rest of this page explains how to install and run the code.
 
-## Getting Started
+## Data preparation
 
 1. Packages accept datasets that already have a calculated score/outcome.
 2. To use a dataset, each feature should be represented in a column with the first entry as the column name.
@@ -33,29 +33,22 @@ where age is the protected attribute in ascending order, we can use:
  - ``2`` for people between 36 to 64 years,
  - ``3`` for people above 65 years, with these being as the group protected most, i.e. with a <i> highest protected group index </i> (higher number indicates a more protected group)
 
-## Prerequisites
+## Installation
+
+### Prerequisites
 
 * python version 3.5
 * dataset to examine in csv format with features as described [above](#getting-started)
 
-## Installing
+### Installing
 
 * clone repository
 * put into python path
-<!--
-```
-command line code for both steps
-```
-@mega: Dependencies
 
-And repeat
+## Running
 
-```
-until finished
-```
--->
+### First example
 
-## Running first example
 * go to ``src/``
 * call main.py to perform the tests on the provided example dataset
 ```
@@ -66,32 +59,31 @@ python3 main.py -d
 python3 main.py -f </PATH/TO/YOUR/CSV/FILE/datasetname.csv>
 ```
 
-## Running the tests
+### Running unit tests
 
 * unittests for the system
 * go to ``test/``
 * call ```python3 runner.py```
-
 
 ## Contributing
 
 * you can upload your contributions on the ``Upload`` branch. After reviewing, we will merge it.
 * For suggestions, please create a Github Issue.
 
-## Versioning
+### Versioning
 
 * Check GitHub's [Version History](https://github.com/megantosh/fairness_measures/commits/Code_read_only/src)
 <!--
 * Do we have any special versioning tools? I guess it's just git, right?
 -->
 
-## Authors
+### Authors
 
 * **Meike Zehlike** - *Initiator* - [MilkaLichtblau](https://github.com/MilkaLichtblau)
 
 See also the list of [contributors](https://github.com/megantosh/fairness_measures/graphs/contributors) who participated in this project.
 
-## License
+### License
 
 This project is licensed under the GPL License <!-- - see the [LICENSE.md](LICENSE.md) file for details -->
 
