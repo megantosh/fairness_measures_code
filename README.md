@@ -1,15 +1,27 @@
-# FAIRNESS AND DISCRIMINATION MEASURES
+# Fairness Measures - Code Repository
 
+This code repository contains implementations of measures used to quantify discrimination.
 
-This project quantifies the fairness distribution of rankings in a dataset using simple statistical functions,
-e.g. Mean Average, as well as more advanced such as group fairness rankings. Fairness is measured for example if there is an equal distribution of protected and non-protected attributes in a dataset.
-Given a dataset with already definded protected attributes (e.g. sex, race, age) as an input, the output is the score of a function measuring the respective statistical key figure
-(e.g. Mean Value, Kendall's Tau) with respect to the protected elements. More details are available in the respective functions, please refer to the code comments.
+For background information on the project, see http://fairness-measures.org/
 
+For the measures that are implemented, see http://fairness-measures.org/Pages/Measures
+
+The rest of this document explains how to use this code.
+
+## Data input, output, and concepts
+
+These programs take as input a dataset in which each row represents a person.
+
+We assume one of the attributes in the input is the *outcome* which we assume was produced by a predictive model (if we want to evaluate algorithmic fairness), or by a person (if we want to evaluate fairness of human decisions). For instance, an outcome could be binary such as whether a person got a scholarship or not, or numeric such as the credit score associated to a person. Some outcomes can be considered positive, such as when a benefit is received, while other outcomes are negative, such as when a benefit is denied.
+
+We further assume there are *protected* attributes in the input, such as gender, race, age, or disability that should ideally not affect the outcome. Some values of the protected attribute are associated to potentially discriminated groups, such as *disability=yes*.
+
+The output is a measure of fairness. Fairness can be measured in many ways, for instance one of the simplest cases is statistical parity, i.e., an equal distribution of protected and non-protected attributes for the elements that received the positive outcome. There are many other ways in which fairness can be measured, please refer to the code comments.
 
 ## Getting Started
-1. Packages accept datasets that already have a calculated score indicating a ranking.
-2. to use a dataset, each feature should be represented in a column with the first entry as the column name.
+
+1. Packages accept datasets that already have a calculated score/outcome.
+2. To use a dataset, each feature should be represented in a column with the first entry as the column name.
 Protected attributes require the prefix ``protected``. The column to be examined requires the prefix ``target``.
 For example, if you need to measure fairness rankings of a dataset with the columns ``sex`` and ``credit_score``,
 please rename the first columns e.g. to ``protected_sex`` and ``target_credit_Score``
@@ -21,16 +33,12 @@ where age is the protected attribute in ascending order, we can use:
  - ``2`` for people between 36 to 64 years,
  - ``3`` for people above 65 years, with these being as the group protected most, i.e. with a <i> highest protected group index </i> (higher number indicates a more protected group)
 
-### Prerequisites
+## Prerequisites
 
 * python version 3.5
 * dataset to examine in csv format with features as described [above](#getting-started)
 
-<!--maybe put python version checker for unix and windows terminal?
-@mega: included now in Main.py
--->
-
-### Installing
+## Installing
 
 * clone repository
 * put into python path
@@ -87,7 +95,8 @@ See also the list of [contributors](https://github.com/megantosh/fairness_measur
 
 This project is licensed under the GPL License <!-- - see the [LICENSE.md](LICENSE.md) file for details -->
 
-## Acknowledgments
+## References
+
 * “Žliobaitė, Indrė. “Measuring discrimination in algorithmic decision making.” Data Mining and Knowledge Discovery 31, no. 4 (July 31, 2017): 1060-089. doi:10.1007/s10618-017-0506-1.”
 <!--
 * cite Zliobaite paper here as inspiration
@@ -96,11 +105,3 @@ This project is licensed under the GPL License <!-- - see the [LICENSE.md](LICEN
 * etc
 -->
 
-<!--
-# How to Install
-
-# How to run
-
-# License
-make sure access rights are correct
--->
