@@ -10,7 +10,7 @@ For the measures that are implemented, see http://fairness-measures.org/Pages/Me
 
 These programs take as input a dataset in which each row represents a person.
 
-We assume one of the attributes in the input is the *outcome* which we assume was produced by a predictive model (if we want to evaluate algorithmic fairness), or by a person (if we want to evaluate fairness of human decisions). For instance, an outcome could be binary such as whether a person got a scholarship or not, or numeric such as the credit score associated to a person. Some outcomes can be considered positive, such as when a benefit is received, while other outcomes are negative, such as when a benefit is denied.
+We assume one of the attributes in the input is the *target* or outcome, which we assume was produced by a predictive model (if we want to evaluate algorithmic fairness), or by a person (if we want to evaluate fairness of human decisions). For instance, an outcome could be binary such as whether a person got a scholarship or not, or numeric such as the credit score associated to a person. Some outcomes can be considered positive, such as when a benefit is received, while other outcomes are negative, such as when a benefit is denied.
 
 We further assume there are *protected* attributes in the input, such as gender, race, age, or disability that should ideally not affect the outcome. Some values of the protected attribute are associated to potentially discriminated groups, such as *disability=yes*.
 
@@ -20,12 +20,11 @@ The rest of this page explains how to install and run the code.
 
 ## Data preparation
 
-1. Packages accept datasets that already have a calculated score/outcome.
-2. To use a dataset, each feature should be represented in a column with the first entry as the column name.
-Protected attributes require the prefix ``protected``. The column to be examined requires the prefix ``target``.
+1. Each feature should be represented in a column with the first entry as the column name.
+2. Protected attributes require the prefix ``protected``. The outcome attribute requires the prefix ``target``.
 For example, if you need to measure fairness rankings of a dataset with the columns ``sex`` and ``credit_score``,
 please rename the first columns e.g. to ``protected_sex`` and ``target_credit_Score``
-3. protected candidates' features index ranges from ``0``, to the <i> highest protected group index </i>, such that in the case of having ``sex`` as a protected feature,
+3. Protected candidates' feature value indices range from ``0``, to the <i> highest protected group index </i>, such that in the case of having ``sex`` as a protected feature,
 we use ``1`` for women if <i>female</i> is the protected group and ``0`` for men provided they are the only unprotected group. In a different use case,
 where age is the protected attribute in ascending order, we can use:
  - ``0`` for people up to 18 years of age, with ``3`` being the <i>lowest protected group index</i> (always ``0``)
