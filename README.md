@@ -6,9 +6,7 @@ For background information on the project, see http://fairness-measures.org/
 
 For the measures that are implemented, see http://fairness-measures.org/Pages/Measures
 
-The rest of this document explains how to use this code.
-
-## Data input, output, and concepts
+## How does this work?
 
 These programs take as input a dataset in which each row represents a person.
 
@@ -17,6 +15,8 @@ We assume one of the attributes in the input is the *outcome* which we assume wa
 We further assume there are *protected* attributes in the input, such as gender, race, age, or disability that should ideally not affect the outcome. Some values of the protected attribute are associated to potentially discriminated groups, such as *disability=yes*.
 
 The output is a measure of fairness. Fairness can be measured in many ways, for instance one of the simplest cases is statistical parity, i.e., an equal distribution of protected and non-protected attributes for the elements that received the positive outcome. There are many other ways in which fairness can be measured, please refer to the code comments.
+
+The rest of this page explains how to install and run the code.
 
 ## Getting Started
 
