@@ -82,17 +82,18 @@ python3 main.py -f </PATH/TO/YOUR/CSV/FILE/datasetname.csv>
 
 See also the list of [contributors](https://github.com/megantosh/fairness_measures/graphs/contributors) who participated in this project.
 
-### License
+### License/Credit
 
 This project is licensed under the GPL License <!-- - see the [LICENSE.md](LICENSE.md) file for details -->
 
+If you use this software or prepared datasets in your work, we ask you to cite this work:
+
+* Zehlike, Meike, Carlos Castillo, Francesco Bonchi, Sara Hajian, Mohamed Megahed. “Fairness Measures: Datasets and software for detecting algorithmic discrimination.” June, 2017. http://fairness-measures.org/ 
+
 ## References
 
+Measurements that were implemented are found in the following paper(s):
+
 * “Žliobaitė, Indrė. “Measuring discrimination in algorithmic decision making.” Data Mining and Knowledge Discovery 31, no. 4 (July 31, 2017): 1060-089. doi:10.1007/s10618-017-0506-1.”
-<!--
-* cite Zliobaite paper here as inspiration
-* Hat tip to anyone who's code was used
-* more inspiration
-* etc
--->
+
 
