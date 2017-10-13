@@ -5,6 +5,8 @@ Created on Jun 13, 2017
 '''
 
 import argparse
+from scipy.stats import binom
+import matplotlib.pyplot as plt
 from data_structure.dataset import Dataset
 from group_fairness_metrics.absolute_measures import *
 import sys
@@ -42,10 +44,25 @@ def main():
     # to be continued
 
 
+
 def run_demo(filename):
     print('Running all measures with an example dataset and prints results to stdout. Please note, that this dataset was created artificially.')
     dataset = Dataset(filename)
 
+    tau_p = 80
+    k = 100
+    p = 0.25
+    fig, ax = plt.subplots(1, 1)
+
+    print(binom.cdf(tau_p, k, 0.9))
+    print(1 - binom.cdf(tau_p - 1, k, p))
+
+    x = np.arange(0,
+                  k)
+    ax.plot(x, binom.cdf(x, k, p), 'bo', ms=5, label='binom cdf')
+    ax.vlines(x, 0, binom.cdf(x, k, p), colors='b', lw=5, alpha=0.5)
+
+    plt.show()
     print('=========== difference of means test =============')
     print(t_test_ind(dataset, 'target_score', 'protected_sex'))
 
