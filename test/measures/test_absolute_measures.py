@@ -4,7 +4,7 @@ Created on Jun 13, 2017
 @author: meike.zehlike
 '''
 import unittest
-import group_fairness_metrics.absolute_measures as am
+import measures.absolute_measures as am
 import pandas as pd
 from data_structure.dataset import Dataset
 import numpy as np
