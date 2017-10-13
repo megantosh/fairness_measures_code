@@ -9,6 +9,8 @@ from scipy.stats.stats import ttest_ind
 
 def t_test_ind(dataset, target_col, protected_col, equal_var=0):
     """
+    corresponds to difference of means test
+
     performs the independent two-sample t-Test, or Welch's test if equality of the variances is not
     given
 
@@ -27,9 +29,9 @@ def t_test_ind(dataset, target_col, protected_col, equal_var=0):
     return ttest_ind(protected_targets, nonprotected_targets, equal_var)
 
 
-def fisher_exact(dataset, target_col, protected_col):
+def fisher_exact_two_groups(dataset, target_col, protected_col):
     """
-    Performs a Fisher exact test on a 2x2 contingency table as in scipy.stats.fisher_exact()
+    Performs a Fisher exact test on a 2x2 contingency table as in scipy.stats.fisher_exact_two_groups()
 
     @param dataset:
     @param target_col:      name of the column that contains the classifier results

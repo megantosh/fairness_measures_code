@@ -76,7 +76,7 @@ def run_demo(filename):
     print(impact_ratio(dataset, 'target_loan_approved', 'protected_sex'))
 
     print('\n=========== odds ratio ============')
-    print(fisher_exact(dataset, 'target_loan_approved', 'protected_sex'))
+    print(fisher_exact_two_groups(dataset, 'target_loan_approved', 'protected_sex'))
 
 
 
