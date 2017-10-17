@@ -31,6 +31,8 @@ where age is the protected attribute in ascending order, we can use:
  - ``1`` for people between 19 to 35 year,
  - ``2`` for people between 36 to 64 years,
  - ``3`` for people above 65 years, with these being as the group protected most, i.e. with a <i> highest protected group index </i> (higher number indicates a more protected group)
+ 
+ Please Note that the available datasets are collected and/or provided as is and are not preprocessed with any ``protected`` or ``target`` columns.
 
 ## Installation
 
@@ -45,6 +47,8 @@ where age is the protected attribute in ascending order, we can use:
 * put into python path
 
 ## Running
+
+* ``src`` and ``test`` packages match the same directory scheme. If you would like to run a test for a certain script, it should be under the same file structure from the ``test`` directory. To run all tests at once, use ``runner.py``
 
 ### First example
 
