@@ -32,7 +32,7 @@ where age is the protected attribute in ascending order, we can use:
  - ``2`` for people between 36 to 64 years,
  - ``3`` for people above 65 years, with these being as the group protected most, i.e. with a <i> highest protected group index </i> (higher number indicates a more protected group)
  
- Please Note that the available datasets are collected and/or provided as is and are not preprocessed with any ``protected`` or ``target`` columns.
+ Please note that the available datasets are collected and/or provided as is and are not preprocessed with any ``protected`` or ``target`` columns.
 
 ## Installation
 
@@ -50,7 +50,7 @@ where age is the protected attribute in ascending order, we can use:
 
 * ``src`` and ``test`` packages match the same directory scheme. If you would like to run a test for a certain script, it should be under the same file structure from the ``test`` directory. To run all tests at once, use ``runner.py``
 
-### First example
+### Running the first example
 
 * go to ``src/``
 * call main.py to perform the tests on the provided example dataset
@@ -62,7 +62,7 @@ python3 main.py -d
 python3 main.py -f </PATH/TO/YOUR/CSV/FILE/datasetname.csv>
 ```
 
-### Running unit tests
+### Running the unit tests
 
 * unittests for the system
 * go to ``test/``
