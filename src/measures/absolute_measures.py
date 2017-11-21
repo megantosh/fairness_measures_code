@@ -42,7 +42,7 @@ def mean_difference(dataset, target_column, protected_column, non_protected=0):
 
     # calculate mean of target values for the non-protected group
     target_values_nonprotected = dataset.data.loc[dataset.data[protected_column] == non_protected, target_column]
-    mean_nonprotected = np.mean(target_values_nonprotected, dtype=np.float64)
+    mean_nonprotected = np.mean(target_values_nonprotected)
 
     # calculate mean of target values for all protected categories
     for category in group_categories:
@@ -51,7 +51,7 @@ def mean_difference(dataset, target_column, protected_column, non_protected=0):
             continue
         else:
             target_values_protected = dataset.data.loc[dataset.data[protected_column] == category, target_column]
-            mean = np.mean(target_values_protected, dtype=np.float64)
+            mean = np.mean(target_values_protected)
             mean_diff = mean_nonprotected - mean
             df = pd.DataFrame({target_column: [mean_diff]}, index=[category])
             result = result.append(df)
