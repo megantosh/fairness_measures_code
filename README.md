@@ -92,12 +92,12 @@ This project is licensed under the GPL License <!-- - see the [LICENSE.md](LICEN
 
 If you use this software or prepared datasets in your work, we ask you to cite this work:
 
-* Zehlike, Meike, Carlos Castillo, Francesco Bonchi, Sara Hajian, Mohamed Megahed. “Fairness Measures: Datasets and software for detecting algorithmic discrimination.” June, 2017. http://fairness-measures.org/ 
+* Meike Zehlike, Carlos Castillo, Francesco Bonchi, Sara Hajian, Mohamed Megahed. “Fairness Measures: Datasets and software for detecting algorithmic discrimination.” June, 2017. http://fairness-measures.org/ 
 
 ## References
 
 Measurements that were implemented are found in the following paper(s):
 
-* “Žliobaitė, Indrė. “Measuring discrimination in algorithmic decision making.” Data Mining and Knowledge Discovery 31, no. 4 (July 31, 2017): 1060-089. doi:10.1007/s10618-017-0506-1.”
+* “Indrė Žliobaitė. “Measuring discrimination in algorithmic decision making.” Data Mining and Knowledge Discovery 31, no. 4 (July 31, 2017): 1060-089. doi:10.1007/s10618-017-0506-1.”
 
 
