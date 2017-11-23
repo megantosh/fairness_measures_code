@@ -6,6 +6,7 @@ Created on Jun 13, 2017
 
 import sys
 import argparse
+import numpy
 from data_structure.dataset import Dataset
 from measures.absolute_measures import *
 from measures.statistical_tests import *
@@ -14,6 +15,8 @@ def main():
     # check python version
     if sys.version_info[1] < 3.5:
         raise Exception("Please use Python 3.5 or above to run")
+
+    numpy.seterr(all='raise')
 
     # create the top-level parser
     parser = argparse.ArgumentParser(prog='fairness benchmarks',
