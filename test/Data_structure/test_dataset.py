@@ -158,6 +158,34 @@ class Test(unittest.TestCase):
         self.assertFalse(actual)
 
 
+    def test_prob_positive_classification(self):
+        data = pd.DataFrame({'target': [1, 1, 1, 1, 0, 0, 0, 0],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        expected = 0.5
+        actual = dataset.prob_positive_classification("target")
+        self.assertEqual(expected, actual)
+
+        #==============================================================================
+
+        data = pd.DataFrame({'target': [0, 0, 0, 0, 0, 0, 0, 0],
+                     'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        expected = 0
+        actual = dataset.prob_positive_classification("target")
+        self.assertEqual(expected, actual)
+
+        #==============================================================================
+        data = pd.DataFrame({'target': [1, 1, 1, 1, 1, 1, 1, 1],
+                             'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
+
+        dataset = Dataset(data)
+        expected = 1
+        actual = dataset.prob_positive_classification("target")
+        self.assertEqual(expected, actual)
+
 
     def test_count_classification_and_category(self):
         data = pd.DataFrame({'target': [1, 1, 1, 1, 1, 0, 0, 0],

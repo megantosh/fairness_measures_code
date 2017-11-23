@@ -6,6 +6,7 @@ Created on Jun 14, 2017
 import pandas as pd
 import numpy as np
 from numpy import integer
+from pandas.io.sas.sas_constants import dataset_length
 
 
 class Dataset(object):
@@ -105,6 +106,17 @@ class Dataset(object):
         @return: array with target values
         """
         return self.data.loc[self.data[protected_col] == group, target_col].values
+
+
+    def prob_positive_classification(self, target_col):
+        """
+        @return: portion of items that have been classified positively
+        """
+
+        value_counts = self.data[target_col].value_counts()
+        pos_counts = value_counts.get(1, default=0)
+
+        return pos_counts / len(self.data[target_col])
 
 
 
