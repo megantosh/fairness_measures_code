@@ -112,24 +112,50 @@ def normalized_difference(dataset, target_col, protected_col):
 
 def impact_ratio(dataset, target_col, protected_col):
     """
-    calculates the ratio of positive outcomes for the protected group over the general group. Non-
+    calculates the ratio of positive outcomes for the protected group over the entire group. Non-
     discrimination is indicated when the ratio is close to 1
 
     @param dataset:
     @param target_col:      name of the column that contains the classifier results
     @param protected_col:   name of the column that contains the protection status
 
-    """
-    conditional_probs = dataset.conditional_prob_for_group_category(target_col, protected_col, 1)
+    @return:    > 1 if the probability to be classified positive as protected is greater than as
+                    for the whole group
+                < 1 if the probability to be classified positive as protected is less than as for
+                    the whole group
+                = 1 if probabilities are equal
 
-    return conditional_probs[1] / conditional_probs[0]
+                If the probability to be positively classified is zero, using this measure doesn't
+                make sense and we throw a ValueError
+    """
+    prob_pos_prot = dataset.conditional_prob_for_group_category(target_col, protected_col, accepted=1)
+    prob_pos = dataset.prob_positive_classification(target_col)
+
+    if prob_pos == 0:
+        raise ValueError
+
+    return prob_pos_prot[1] / prob_pos
 
 
 def odds_ratio(dataset, target_col, protected_col):
-    conditional_probs_pos = dataset.conditional_prob_for_group_category(target_col, protected_col, 1)
-    conditional_probs_neg = dataset.conditional_prob_for_group_category(target_col, protected_col, 0)
+    """
+    a statistical measure that describes the dependency of two features.
 
-    return (conditional_probs_pos[0] * conditional_probs_neg[1]) / (conditional_probs_pos[1] * conditional_probs_neg[0])
+    @return:    > 1 if the probability to be classified positive as non-protected is greater than as
+                    as protected
+                < 1 if the probability to be classified positive as protected is greater than as
+                    non-protected
+                = 1 if probabilities are equal
+
+                If the probability to be positively classified as a protected group member is zero,
+                we catch the FloatingPointError and return positive infinity instead
+    """
+    conditional_probs_pos = dataset.conditional_prob_for_group_category(target_col, protected_col, accepted=1)
+    conditional_probs_neg = dataset.conditional_prob_for_group_category(target_col, protected_col, accepted=0)
+
+    try :
+        return (conditional_probs_pos[0] * conditional_probs_neg[1]) / (conditional_probs_pos[1] * conditional_probs_neg[0])
+    except FloatingPointError: return np.inf
 
 
 

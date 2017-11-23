@@ -12,6 +12,8 @@ import numpy as np
 
 class Test(unittest.TestCase):
 
+    np.seterr(all='raise')
+
     def test_mean_difference(self):
         data = pd.DataFrame({'target': [1, 2, 3, 4, 5, 6, 7, 8],
                              'protected': [0, 1, 2, 3, 0, 1, 2, 3]})
@@ -97,21 +99,21 @@ class Test(unittest.TestCase):
 
         #===========================================================================
 
-        # bit of discrimination
-        data = pd.DataFrame({'target': [1, 1, 0, 0, 1, 0, 1, 0],
+        # discrimination against protected
+        data = pd.DataFrame({'target':    [1, 1, 0, 0, 1, 0, 1, 0],
                              'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
         dataset = Dataset(data)
-        self.assertEqual(1 / 3, am.impact_ratio(dataset, "target", "protected"))
+        self.assertEqual(0.5, am.impact_ratio(dataset, "target", "protected"))
 
         #===========================================================================
 
-        # inverse discrimination should return nan, because division by zero is performed
+        # inverse discrimination
         data = pd.DataFrame({'target': [0, 1, 0, 1, 0, 1, 0, 1],
                              'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
         dataset = Dataset(data)
-        self.assertEqual(np.inf, am.impact_ratio(dataset, "target", "protected"))
+        self.assertEqual(2, am.impact_ratio(dataset, "target", "protected"))
 
 
     def test_odds_ratio(self):
@@ -125,7 +127,7 @@ class Test(unittest.TestCase):
         #===========================================================================
 
         # the probability of being accepted as a protected group member is in this case zero
-        # hence should return nan
+        # hence should return infinity
         data = pd.DataFrame({'target': [1, 0, 1, 0, 1, 0, 1, 0],
                              'protected': [0, 1, 0, 1, 0, 1, 0, 1]})
 
