@@ -4,7 +4,6 @@ Created on Jun 13, 2017
 @author: meike.zehlike
 '''
 from scipy.stats import stats
-from scipy.stats.stats import ttest_ind
 
 
 def t_test_ind(dataset, target_col, protected_col, equal_var=0):
@@ -26,7 +25,7 @@ def t_test_ind(dataset, target_col, protected_col, equal_var=0):
     """
     protected_targets = dataset.get_all_targets_of_group(target_col, protected_col, 1)
     nonprotected_targets = dataset.get_all_targets_of_group(target_col, protected_col, 0)
-    return ttest_ind(protected_targets, nonprotected_targets, equal_var)
+    return stats.ttest_ind(protected_targets, nonprotected_targets, equal_var)
 
 
 def fisher_exact_two_groups(dataset, target_col, protected_col):
