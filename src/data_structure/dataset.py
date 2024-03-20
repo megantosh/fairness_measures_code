@@ -76,7 +76,7 @@ class Dataset(object):
         """
         counts the number of items that have the desired combination of protection status and
         classification result.
-        Example: group=0 and accepted=0 returns the number of non-protected that where classified negative
+        Example: group=0 and accepted=0 returns the number of non-protected that were classified as negative
 
         @param target_col:      name of the column in data that contains the classification results
         @param protected_col:   name of the column in data that contains the protection status
@@ -91,7 +91,7 @@ class Dataset(object):
 
         # get all classification results for given group group
         classes_for_protected = self.get_all_targets_of_group(target_col, protected_col, group)
-        # count those that match given acceptance state
+        # count those that match the given acceptance state
         return (classes_for_protected == accepted).sum()
 
 
@@ -144,7 +144,7 @@ class Dataset(object):
         unique, counts = np.unique(self.data[protected_col], return_counts=True)
         protected_group_counts = dict(zip(unique, counts))
 
-        # calculate conditional probability of positive outcome given each group category
+        # calculate the conditional probability of a positive outcome given each group category
         for group_category, member_count in protected_group_counts.items():
 
             conditional_probs[group_category] = \

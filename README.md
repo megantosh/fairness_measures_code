@@ -10,15 +10,15 @@ For the measures that are implemented, see http://fairness-measures.org/Pages/Me
 
 These programs take as input a dataset in which each row represents a person.
 
-We assume one of the attributes in the input is the *target* or outcome, which we assume was produced by a predictive model (if we want to evaluate algorithmic fairness), or by a person (if we want to evaluate fairness of human decisions). For instance, an outcome could be binary such as whether a person got a scholarship or not, or numeric such as the credit score associated to a person. Some outcomes can be considered positive, such as when a benefit is received, while other outcomes are negative, such as when a benefit is denied.
+We assume one of the attributes in the input is the *target* or outcome, which we assume was produced by a predictive model (if we want to evaluate algorithmic fairness), or by a person (if we want to evaluate the fairness of human decisions). For instance, an outcome could be binary such as whether a person got a scholarship or not, or numeric such as the credit score associated with a person. Some outcomes can be considered positive, such as when a benefit is received, while other outcomes are negative, such as when a benefit is denied.
 
 We further assume there are *protected* attributes in the input, such as gender, race, age, or disability that should ideally not affect the outcome. Some values of the protected attribute are associated to potentially discriminated groups, such as *disability=yes*.
 
-The output is a measure of fairness. Fairness can be measured in many ways, for instance one of the simplest cases is statistical parity, i.e., an equal distribution of protected and non-protected attributes for the elements that received the positive outcome. There are many other ways in which fairness can be measured, please refer to the code comments.
+The output is a measure of fairness. Fairness can be measured in many ways, for instance, one of the simplest cases is statistical parity, i.e., an equal distribution of protected and non-protected attributes for the elements that received the positive outcome. There are many other ways in which fairness can be measured, please refer to the code comments.
 
 The rest of this page explains how to install and run the code.
 
-## Data preparation
+## Data Preparation
 
 1. Each feature should be represented in a column with the first entry as the column name.
 2. Protected attributes require the prefix ``protected``. The outcome attribute requires the prefix ``target``.
@@ -28,9 +28,9 @@ please rename the first columns e.g. to ``protected_sex`` and ``target_credit_Sc
 we use ``1`` for women if <i>female</i> is the protected group and ``0`` for men provided they are the only unprotected group. In a different use case,
 where age is the protected attribute in ascending order, we can use:
  - ``0`` for people up to 18 years of age, with ``3`` being the <i>lowest protected group index</i> (always ``0``)
- - ``1`` for people between 19 to 35 year,
+ - ``1`` for people between 19 to 35 years,
  - ``2`` for people between 36 to 64 years,
- - ``3`` for people above 65 years, with these being as the group protected most, i.e. with a <i> highest protected group index </i> (higher number indicates a more protected group)
+ - ``3`` for people above 65 years, with these being as the group protected most, i.e. with a <i> highest protected group index </i> (a higher number indicates a more protected group)
  
  Please note that the available datasets are collected and/or provided as is and are not preprocessed with any ``protected`` or ``target`` columns.
 
@@ -48,7 +48,7 @@ where age is the protected attribute in ascending order, we can use:
 
 ## Running
 
-* ``src`` and ``test`` packages match the same directory scheme. If you would like to run a test for a certain script, it should be under the same file structure from the ``test`` directory. To run all tests at once, use ``runner.py``
+* ``src`` and ``test`` packages match the same directory scheme. If you would like to run a test for a certain script, it should be under the same file structure as the ``test`` directory. To run all tests at once, use ``runner.py``
 
 ### Running the first example
 
@@ -57,21 +57,21 @@ where age is the protected attribute in ascending order, we can use:
 ```
 python3 main.py -d
 ```
-* call ``main.py`` with your dataset file to perform t-test on your data
+* call ``main.py`` with your dataset file to perform a t-test on your data
 ```
 python3 main.py -f </PATH/TO/YOUR/CSV/FILE/datasetname.csv>
 ```
 
 ### Running the unit tests
 
-* unittests for the system
+* unit tests for the system
 * go to ``test/``
 * call ```python3 runner.py```
 
 ## Contributing
 
 * you can upload your contributions on the ``Upload`` branch. After reviewing, we will merge it.
-* For suggestions, please create a Github Issue.
+* For suggestions, please create a GitHub Issue.
 
 ### Versioning
 
@@ -84,7 +84,7 @@ python3 main.py -f </PATH/TO/YOUR/CSV/FILE/datasetname.csv>
 
 * **Meike Zehlike** - *Initiator* - [MilkaLichtblau](https://github.com/MilkaLichtblau)
 
-See also the list of [contributors](https://github.com/megantosh/fairness_measures/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/megantosh/fairness_measures_code/graphs/contributors) who participated in this project.
 
 ### License/Credit
 
